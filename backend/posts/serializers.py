@@ -4,8 +4,6 @@ from posts.models import Post, Comment
 from users.models import User
 
 
-
-
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
 
@@ -58,4 +56,4 @@ class PostListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ("pk","title","image","updated_at","user", "likes_count", "comments_count")
+        fields = '__all__'
