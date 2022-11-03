@@ -70,3 +70,4 @@ class CommentDetailView (APIView):
     def delete(self, request):
         pass
 
+지워주세요
