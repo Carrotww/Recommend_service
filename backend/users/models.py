@@ -10,7 +10,6 @@ class UserManager(BaseUserManager):
         if not username:
             raise ValueError('Users must have an username address')
         
-        user = self.model.normalize_username(username)
         user = self.model(
             username=username,
             )
