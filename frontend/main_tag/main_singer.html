@@ -1,0 +1,62 @@
+<head>
+    <link rel="stylesheet" href="main.css">
+    <script>
+        
+        // 페이지 클릭하자마자 실행
+
+        // url가져와서 버튼에 넣는 코드
+        window.onload=function(){
+            console.log("url:"+ window.location.search)
+            // getPara()
+            const urlParams = new URL(location.href).searchParams;
+            const genre = urlParams.get('genre');
+            console.log(genre)
+
+            document.getElementById("genre_btn").innerText = genre;
+
+
+
+
+        }
+
+        function getPara() {
+            var para = document.location.href.split("?");
+            console.log(para);
+        }
+        // var para = document.location.href.split("?");
+        // console.log(para);
+    </script>
+
+    
+</head>
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+      <header >
+        <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
+        <nav>
+          <span >로그인하기</span>
+          
+        </nav>
+      </header>
+    
+       
+    
+      <body>   
+        
+        <div class="container">
+         
+          <button onclick="location.href='main.html'" id = "genre_btn">genre</button>
+          
+          
+
+        </div>
+        
+    
+        
+        </body>
+       
+</html
