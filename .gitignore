@@ -1,9 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,venv,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,venv,windows,macos
 
-!migrations/__init__.py
-migrations/
-
 ### Django ###
 *.log
 *.pot
