@@ -8,6 +8,7 @@ class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
 
         if not username:
+
             raise ValueError('Users must have an username')
 
         user = self.model(
@@ -19,7 +20,6 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, username, password=None):
-
         user = self.create_user(
             username,
             password=password,
