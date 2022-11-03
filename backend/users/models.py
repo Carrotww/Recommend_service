@@ -10,9 +10,7 @@ class UserManager(BaseUserManager):
         if not username:
             raise ValueError('Users must have an username address')
 
-        user = self.model(
-            username=self.normalize_username(username),
-        )
+        user = self.model( )
 
         user.set_password(password)
         user.save(using=self._db)
