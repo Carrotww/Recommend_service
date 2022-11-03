@@ -11,10 +11,12 @@ class UserManager(BaseUserManager):
 
             raise ValueError('Users must have an username')
 
+
         user = self.model(
             username = username, 
         )
         
+
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -34,6 +36,7 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
+
     followings = models.ManyToManyField('self',symmetrical=True, related_name="followings", blank=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
