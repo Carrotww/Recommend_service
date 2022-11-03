@@ -9,17 +9,17 @@ class UserManager(BaseUserManager):
 
         if not username:
             raise ValueError('Users must have an username address')
-
+        
+        user = self.model.normalize_username(username)
         user = self.model(
-            username=self.normalize_username(username),
-        )
+            username=username,
+            )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
     def create_superuser(self, username, password=None):
-
         user = self.create_user(
             username,
             password=password,
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
 
 class User(AbstractBaseUser):
     username = models.CharField(
-        verbose_name='username address',
+        verbose_name='username',
         max_length=255,
         unique=True,
     )
