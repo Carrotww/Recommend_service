@@ -11,3 +11,4 @@ class CategoryListSerializer(serializers.ModelSerializer): # 카테고리(tag)
     class Meta:
         model = Category
         fields = ['category',]
+
