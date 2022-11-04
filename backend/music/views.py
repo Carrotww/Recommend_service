@@ -50,16 +50,15 @@ class Category_search_view(APIView):
         search_result = last_fm_api.lookup_track_search(search_list)
 
         searched_list = [{"singer": x[0], "title": x[1]} for x in search_result]
-        pprint(searched_list)
 
-        # for se in search_result:
-        #     singer = se[0]
-        #     title = se[1]
-        #     print(singer, title)
-        #     singer_model = Singer.objects.create(singer=singer)
-        #     singer_model.save()
-        #     music_model = Music.objects.create(singer=singer, title=title)
-        #     music_model.save()
+        for se in search_result:
+            singer = se[0]
+            title = se[1]
+            print(singer, title)
+            singer_model = Singer.objects.create(singer=singer)
+            singer_model.save()
+            music_model = Music.objects.create(singer=singer, title=title)
+            music_model.save()
         
         return Response(searched_list, status=status.HTTP_200_OK)
 
