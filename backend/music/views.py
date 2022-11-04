@@ -8,6 +8,7 @@ from music.last_fm_api import lookup_all_tags
 import random
 
 
+
 class CategoryView(APIView):
     def get(self, request): # 곡/아티스트 tag 전체 조회
         from pprint import pprint

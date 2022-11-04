@@ -12,4 +12,8 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('follow/<int:user_id>/', views.FollowView.as_view(), name='follow_view'),
     # path('<int:user_id>/', views.ProfileView.as_view(), name='follow_view'),
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> 646cc7167a1b03b213bb58f3b02512ae6ebd36fd

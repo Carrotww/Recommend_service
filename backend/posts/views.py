@@ -69,4 +69,3 @@ class CommentDetailView (APIView):
 
     def delete(self, request):
         pass
-

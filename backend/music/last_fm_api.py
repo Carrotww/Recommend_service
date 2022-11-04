@@ -49,7 +49,7 @@ def lookup_all_tags():
         'method': 'tag.getTopTags',
     })
     tags = [t['name'] for t in response.json()['toptags']['tag']]
-    result = {x for x in tags}
+    result = [x for x in tags]
 
     if response.status_code != 200:
         return None
@@ -80,7 +80,7 @@ def lookup_track_search(tag):
     from pprint import pprint
     # tag 가 여러개 일 시 2개 까지 자르는 로직 추가 예정
     temp = ' '.join(tag)
-    print(temp)
+    # print(temp)
     response = lastfm_get({
         'method': 'track.search',
         'track': tag
@@ -94,5 +94,5 @@ def lookup_track_search(tag):
 # print(lookup_artist_tags('버즈'))
 # print(lookup_all_tags())
 # print(lookup_similar_tag('spring'))
-temp = ['rock', 'jazz']
-print(lookup_track_search(temp))
+# temp = ['rock', 'jazz']
+# print(lookup_track_search(temp))
