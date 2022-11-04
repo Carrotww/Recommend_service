@@ -1,0 +1,31 @@
+body {
+
+
+    height: auto;
+    padding: 1rem;
+    color: white;
+    background: #292929;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.music_container {
+    position: fixed;
+
+}
+
+.music_item {
+    background: #ffffff;
+    font-size: 10px;
+}
+
+.music_img {
+    background: #db9d9d;
+    width: 30px;
+    height: 30px;
+}
+
+.music_info {
+    background: #493d3d;
+}

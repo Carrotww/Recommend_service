@@ -10,11 +10,11 @@ class UserProfileSerializer(serializers.ModelSerializer):
     followers = serializers.StringRelatedField(many=True)
     followings = serializers.StringRelatedField(many=True)
     post_set = PostListSerializer(many=True)
-    like_post = PostListSerializer(many=True)
+    like_music = PostListSerializer(many=True)
 
     class Meta:
         model = User
-        fields = ("id", "email", "followings", "followers", "post_set", "like_post")
+        fields = ("__all__")
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -26,6 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
         user = super().create(validated_data)
         password = user.password
         user.set_password(password)
+        user.save()
         return user
 
     def update(self, validated_data):
@@ -46,3 +47,4 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token['username'] = user.username
 
         return token
+
