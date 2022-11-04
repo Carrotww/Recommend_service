@@ -2,15 +2,15 @@ from rest_framework import status
 from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from music.serializers import CategoryListSerializer
-from music.models import Category
-from music.last_fm_api import lookup_all_tags
+from music.serializers import CategoryListSerializer, MusicStoreSerializer
+from music.models import Category, Music, Singer
+from music import last_fm_api
 import random
+from pprint import pprint
 
 
 class CategoryView(APIView):
     def get(self, request): # 곡/아티스트 tag 전체 조회
-        from pprint import pprint
         category = Category.objects.all()
         # 12개
         serializer = CategoryListSerializer(category, many=True)
@@ -26,6 +26,7 @@ class CategoryView(APIView):
 
     def post(self, request): # 곡/아티스트 tag 목록 중 선택 (최대 5개)
         serializer = CategoryListSerializer(data=request.data) # 요청 데이터를 deserializer
+        
         if serializer.is_valid():
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
@@ -33,7 +34,7 @@ class CategoryView(APIView):
 
 class Category_Database_view(APIView):
     def get(self, request):
-        all_tag = lookup_all_tags()
+        all_tag = last_fm_api.lookup_all_tags()
         
         for tag in all_tag:
             category = Category()
@@ -42,6 +43,28 @@ class Category_Database_view(APIView):
 
         return Response(status=status.HTTP_200_OK)
 
-class Category_front_view(APIView):
-    def get(self, request):
-        pass
+class Category_search_view(APIView):
+    def post(self, request):
+        search_list = request.data['category'].split(',')
+        search_result = last_fm_api.lookup_track_search(search_list)
+
+        searched_list = [{"singer": x[0], "title": x[1]} for x in search_result]
+        pprint(searched_list)
+
+        # for se in search_result:
+        #     singer = se[0]
+        #     title = se[1]
+        #     print(singer, title)
+        #     singer_model = Singer.objects.create(singer=singer)
+        #     singer_model.save()
+        #     music_model = Music.objects.create(singer=singer, title=title)
+        #     music_model.save()
+        
+        return Response(searched_list, status=status.HTTP_200_OK)
+
+        # serializer = MusicStoreSerializer(Music, data=search_list)
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return Response(searched_list, status=status.HTTP_200_OK)
+        # else:
+        #     return Response(status=status.HTTP_400_BAD_REQUEST)
