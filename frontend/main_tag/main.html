@@ -16,21 +16,8 @@
     </nav>
 
     <script>    
-
-
-      // url에서 값 가져오기
-      // function onclick_genre(genre){
-      //   var url = 'main_singer.html';
-      //   var data = '?genre=' + genre;
-      //   location.href= url+data;
-      // }
-
       window.onload = function(){
-      
-      
-
-
-      function searchToggle(obj, evt){
+        function searchToggle(obj, evt){
         var container = $(obj).closest('.search-wrapper');
           if(!container.hasClass('active')){
             container.addClass('active');
@@ -44,50 +31,25 @@
           }
       }
 
-      // // 버튼 눌리면 유지 (체크박스)
-      // function getCheckboxValue()  {
-      //   // 선택된 목록 가져오기
-     //   const query = 'input[name="animal"]:checked';
-      //   const selectedEls = 
-      //       document.querySelectorAll(query);
-      
-     //   // 선택된 목록에서 value 찾기
-      //   let result = '';
-      //   selectedEls.forEach((el) => {
-     //     result += el.value + ' ';
-      //   });
-
-      //   // 출력
-     //   document.getElementById('result').innerText
-     //     = result;
-      //   }
-        
-
         let c1 = document.querySelectorAll('label');
         c1.addEventListener('click',function(){
           c1.classList.toggle('flipped')
           console.log('ㅠㅠ')
         })
-        
-
-
       }
         
-    
-
-
-
     </script>
-  </header>
+    </header>
     
 
 
+    
         <!-- 검색창  -->
          <div class = "test_container">
           <form class="box">
             <h1>What do you want to listen? </h1>
             <input type="text" value="Type.."   onclick="this.value='';" >
-            <input type="submit" value="Search">
+            <input type="submit" href="search.html"  value="Search">
           </form>
          </div>
 
@@ -110,19 +72,12 @@
             <input type='checkbox'name='GROUP'value='GROUP' id="GROUP"/><label for="GROUP" class="mylabel" >GROUP</label>
           </div>
 
-          <div class="submit_container">
-            <button onclick='getCheckboxValue()'>확인</button>
+          <div class="">
+            <button class="submit_container" onclick='getCheckboxValue()'>확인</button>
           </div>
           <div id='result'></div>
           <br>
 
-
-          <!-- <div class="checkbox-container">
-            <input type="checkbox" id="is-subscription">
-      
-            <label for="is-subscription">구독신청</label>
-            
-            </div> -->
 
           <!-- 장르 선택 -->
           <!-- <button onclick="onclick_genre('KPOP')">KPOP</button>
@@ -150,9 +105,6 @@
           
 
         </div> 
-        
-    
-        
         </body>
            <script src="script.js"></script>
 

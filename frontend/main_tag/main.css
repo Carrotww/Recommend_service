@@ -18,9 +18,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  /* right: 0; */
   width: 100%;
-  /* height: 55px; */
   padding: 1rem;
   color: white;
   background: #292929;
@@ -35,11 +33,6 @@ h1, p {
 }
 
 
-
-
-
-
-
 /* 배경 컨테이너 */
 .main_container {
 margin: 10px;
@@ -50,22 +43,17 @@ float: center;
 }
 
 
-
 /* 배경 어둡게 해주기 */
 .test_container{
   margin: 20px auto;
   width:50%;
   height:50%;
-  /* background-image: url(https://velog.velcdn.com/images/taeeuno_o/post/ae4a5988-d54f-4213-be43-fa9bb100895e/image.webp); */
   background-repeat: no-repeat;
   background-size:cover;
-  /* float:center; */
 }
 
 .test_container:before{
-  /* content: ''; */
   position: absolute;
-  /* top: 55px; */
   left:0%;
   width: 100%;
   height: 100%;
@@ -75,7 +63,6 @@ float: center;
 
 
 form.box{
-  /* border:1px solid red; */
   width : 40%;
   height: 7%;
   position: absolute;
@@ -87,15 +74,15 @@ form.box{
   z-index: 1000;
 
 }
+
 form.box h1{
-  /* font-weight: normal; */
   font-size: 2vw;
   margin:0 0 20px;
 }
+
 form.box input[type=text]{
   background-color: #fff;
   width: 50%;
-  /* height: 60%; */
   padding: 10px;
   border-radius: 25px 0 0 25px;
   border: none;
@@ -111,11 +98,6 @@ form.box input[type=submit]{
   color: #fff;
   margin-left: -6px;
 }
-
-/* form.box input[type=text]::placeholder{
-  color: gray;
-} */
-
 
 /* 반응형으로 할때는 float, position-absolute 쓰지 말기ㅣㅣㅣㅣ */
 
@@ -145,6 +127,7 @@ align-items: center;
   align-items: center;  
   
 }
+
 .submit_container{
   margin: 0 0 10px;
   width: 100%;
@@ -168,39 +151,18 @@ button {
   border:none;
   border-radius:20px;
   transition: 0.3s;
-  /* position: absolute; */
-  left:auto;
- 
-  
-    
+  left:auto;  
 }
 
-/* button:hover{
-  background:rgba(126, 126, 126, 0.9);
-  cursor:pointer;
-  box-shadow: 0 2px 4px;
-
-} */
 
 input[type="checkbox"]{
-  
   display: none;
-  /* border: 1px solid red; */
-}
-
-.flipped{
-  background-color:rgba(126, 126, 126, 0.9);
-  box-shadow: 0 2px 4px;
-  color: red ;
 }
 
 input:checked + label{
-  /* border: solid 5px red; */
   background-color:rgba(126, 126, 126, 0.9);
   box-shadow: 0 2px 4px;
-  /* color: rgb(142, 101, 255) ; */
 }
-/* .input-chek:checked + .form-chek, .input-radio:checked + .form-radio{color: #749fbb;} */
 
 
 
@@ -225,65 +187,51 @@ input:checked + label{
 }
 
 
+.submit_container:hover{
+  background:rgba(61, 67, 179, 0.9);
+  cursor:pointer;
+  box-shadow: 0 2px 4px;
+}
+
+
+
 .mylabel:hover{
   background:rgba(126, 126, 126, 0.9);
   cursor:pointer;
   box-shadow: 0 2px 4px;
-
 }
 
 
 
 .checkbox-container {
-
   position: relative;
-  
   }
   
   
   
   /* // 기본 체크박스 없애기 */
-  
   .checkbox-container input[type="checkbox"] {
-  
   position: absolute;
-  
   width: 1px;
-  
   height: 1px;
-  
-  padding: 0;
-  
+  padding: 0; 
   margin: -1px;
-  
   overflow: hidden;
-  
   clip:rect(0,0,0,0);
-  
   border: 0
-  
   }
   
   
   
   /* // 웹의 경우 커서에 pointer 설정 */
-  
   .checkbox-container input[type="checkbox"] + label {
-  
-  display: inline-block;
-  
+  display: inline-block; 
   position: relative;
-  
   cursor: pointer;
-  
   -webkit-user-select: none;
-  
   -moz-user-select: none;
-  
   -ms-user-select: none;
-  
   user-select: none;
-  
   }
   
   
@@ -291,61 +239,19 @@ input:checked + label{
  /* 새로운 디자인의 체크박스 만들기 */
   
   .checkbox-container input[type="checkbox"] + label:before {
-  
   content: ' ';
-  
   display: inline-block;
-  
   width: 18px;
-  
   height: 18px;
-  
   line-height: 18px;
-  
   margin: -2px 8px 0 0;
-  
   text-align: center;
-  
   vertical-align: middle;
-  
   background: #fafafa;
-  
   border: 1px solid #cacece;
-  
   border-radius: 3px;
-  
   box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-  
   }
-  
-  
-  /* 체크박스 1 버튼*/
-  /* .checkbox-container input[type="checkbox"] + label:active:before, */
-  
-  /* .checkbox-container input[type="checkbox"]:checked + label:active:before {
-          box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
-  
-  } */
-  
-  
-  
-  /* .checkbox-container input[type="checkbox"]:checked + label:before {
-  
-  content: '\2713';
-  
-  color: #314ca2;
-  
-  text-shadow: 1px 1px white;
-  
-  background: #f1f4ff;
-  
-  border-color: #adb8c0;
-  
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-  
-  } */
-
-
 
   
 
