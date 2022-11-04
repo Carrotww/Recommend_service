@@ -54,11 +54,21 @@ class Category_search_view(APIView):
         for se in search_result:
             singer = se[0]
             title = se[1]
-            print(singer, title)
-            singer_model = Singer.objects.create(singer=singer)
-            singer_model.save()
-            music_model = Music.objects.create(singer=singer, title=title)
-            music_model.save()
+            try:
+                find_singer = Singer.objects.get(singer=singer)
+            except:
+                find_singer = None
+            if find_singer is None:
+                singer_model = Singer.objects.create(singer=singer)
+                singer_model.save()
+            
+            try:
+                find_music = Music.objects.get(singer=singer, title=title)
+            except:
+                find_music = None
+            if find_music is None:
+                music_model = Music.objects.create(singer=singer, title=title)
+                music_model.save()
         
         return Response(searched_list, status=status.HTTP_200_OK)
 
