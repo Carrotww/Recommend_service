@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "users",
     "music",
     "posts",
-    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
