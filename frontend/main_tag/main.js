@@ -1,6 +1,7 @@
 window.onload = ()=>{
     console.log("load")
 
+
     show_tag_fuc() // backend에서 tag 가져오기
     alltag = new Array(); // 전체 테그 담을 리스트 선언
 
@@ -8,9 +9,8 @@ window.onload = ()=>{
 
 
 // // tag 불러오는 함수
-
 async function show_tag_fuc() {
-    const response = await fetch('http://210.113.127.22:8000/music/', {
+    const response = await fetch('http://127.0.0.1:8000/music/', {
         headers:{
             'content-type':'application/json',
         },
@@ -22,6 +22,7 @@ async function show_tag_fuc() {
       })
     // Promise 안에 담긴 데이터 꺼내오기
     .then(data => {
+
         console.log(data) // tag 목록 확인
         var tags= document.getElementById("all_tags");
         for (i=0; i < data.length; i++){
@@ -75,12 +76,14 @@ async function AllTagPost() {
         }
     }
     console.log(str)
-    const response = await fetch('http://210.113.127.22:8000/music_search/', {
+    const response = await fetch('http://127.0.0.1:8000/music_search/', {
+
         headers:{
             'content-type':'application/json',
         },
         method:'POST',
         body: JSON.stringify({
+
             "category":str
         })
     })
