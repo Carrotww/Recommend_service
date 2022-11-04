@@ -1,6 +1,9 @@
 # import requests
 import json
 import time
+import random
+from pprint import pprint
+from itertools import combinations
 
 def lastfm_get(payload):
     API_KEY = '552c5795a19b23b431b21d1b47c080e6'
@@ -76,23 +79,47 @@ def lookup_taginfo_tag(tag):
 
     return response.json()
 
-def lookup_track_search(tag):
-    from pprint import pprint
-    # tag 가 여러개 일 시 2개 까지 자르는 로직 추가 예정
-    temp = ' '.join(tag)
-    # print(temp)
+# tag 기반 음악 추천 함수
+# + 검색 기능
+def lookup_track_search(tag:list):
+    # tag가 5개 들어옴
+    recommend_music_list = []
+
+    if len(tag) >= 2:
+        tag_list = list(combinations(tag, 2))
+        for i in tag_list:
+            response = lastfm_get({
+            'method': 'track.search',
+            'track': i})
+            recommend_all_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track']]
+            recommend_music_list.append(random.choice(recommend_all_list))
+
+        return recommend_music_list
+
+    elif len(tag) == 1:
+        response = lastfm_get({
+        'method': 'track.search',
+        'track': tag})
+        search_result_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track'][0:5]]
+
+        return search_result_list
+
+def lookup_track_info(track_info:list):
+    artist, track_name = track_info[0], track_info[1]
     response = lastfm_get({
         'method': 'track.search',
-        'track': tag
+        'track': track_name,
+        'artist': artist,
     })
-    music = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track']]
-    # 랜덤하게 1~3 개 뽑아오는 로직 추가 예정
-    # pprint(music)
 
-    return music
+    pprint(response.json()['results']['trackmatches']['track'][0])
+    
+    return
 
 # print(lookup_artist_tags('버즈'))
 # print(lookup_all_tags())
 # print(lookup_similar_tag('spring'))
 # temp = ['rock', 'jazz']
-# print(lookup_track_search(temp))
+# print(lookup_track_search(['버즈', ' 트와이스', 'pop']))
+# print(lookup_track_search(['버즈']))
+# print(lookup_track_info(('Black Eyed Peas', 'Rock That Body')))

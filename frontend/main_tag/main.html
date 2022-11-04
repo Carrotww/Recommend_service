@@ -1,31 +1,32 @@
 <head>
-    <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="main.css">
 </head>
-
-
 <!DOCTYPE html>
-
 <html lang="ko">
-  <header>
+
+  
+<!-- 사이드바 만들기 -->
+<!-- <input type="checkbox" id="sidebar"> -->
+
+<header>
+  <!-- 헤더 네비게이션 -->
+
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
-      <span a href="signin.html">로그인하기</span>
+      <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
+      <div>
+        <label for="sidebar" class="menu"></label>
+      </div>
           
     </nav>
-
-    <script>    
-
-
-      // url에서 값 가져오기
-      // function onclick_genre(genre){
-      //   var url = 'main_singer.html';
-      //   var data = '?genre=' + genre;
-      //   location.href= url+data;
-      // }
+    
 
 
-      function searchToggle(obj, evt){
+    <script src="main.js">
+
+      window.onload = function(){
+        function searchToggle(obj, evt){
         var container = $(obj).closest('.search-wrapper');
           if(!container.hasClass('active')){
             container.addClass('active');
@@ -39,41 +40,32 @@
           }
       }
 
-      // // 버튼 눌리면 유지 (체크박스)
-      // function getCheckboxValue()  {
-      //   // 선택된 목록 가져오기
-     //   const query = 'input[name="animal"]:checked';
-      //   const selectedEls = 
-      //       document.querySelectorAll(query);
-      
-     //   // 선택된 목록에서 value 찾기
-      //   let result = '';
-      //   selectedEls.forEach((el) => {
-     //     result += el.value + ' ';
-      //   });
-
-      //   // 출력
-     //   document.getElementById('result').innerText
-     //     = result;
-      //   }
+        let c1 = document.querySelectorAll('label');
+        c1.addEventListener('click',function(){
+          c1.classList.toggle('flipped')
+          console.log('ㅠㅠ')
+        })
+      }
         
-
-
-    
-
-
-
     </script>
-  </header>
+</header>
+
+<!-- 본문영역 -->
+<!-- <div class="sidebar_container">
+  <img src="">
+</div> -->
+
+
+<body>
+
+
     
-
-
         <!-- 검색창  -->
          <div class = "test_container">
           <form class="box">
             <h1>What do you want to listen? </h1>
-            <input type="text" value="Type.." >
-            <input type="submit" value="Search">
+            <input type="text" value="Type.."   onclick="this.value='';" >
+            <input type="submit" href="search.html"  value="Search">
           </form>
          </div>
 
@@ -81,47 +73,31 @@
          <!-- 태그 -->
         <div class="btn_container">
           
-          
-          <!-- 체크박스
+          <div class="checkbox_container" id="all_tags"></div>
 
-          <button type='checkbox' onclick="onclick_genre('KPOP')">멈머</button>
-          <input type='checkbox'name='animal'value='dog'/> 개
-          <input type='checkbox' name='animal' value='cat' /> 고양이
-          <button onclick='getCheckboxValue()'>확인</button>
+          <div class="">
+            <button class="submit_container" onclick='AllTagPost()'>확인</button>
+          </div>
           <div id='result'></div>
-          <br> -->
-         
-
-          <!-- 장르 선택 -->
-          <button onclick="onclick_genre('KPOP')">KPOP</button>
-          <button onclick="onclick_genre('OST')">OST</button>
-          <button onclick="onclick_genre('ROCK')">ROCK</button>
-          <button onclick="onclick_genre('POP')">POP</button>
-          <button onclick="onclick_genre('HIPHOP')">HIP</button>
-          <button onclick="onclick_genre('EDM')">EDM</button>
-          <button onclick="onclick_genre('JAZZ')">JAZZ</button>
-          <button onclick="onclick_genre('CLASSIC')">CLASSIC</button>
-          <button onclick="onclick_genre('JPOP')">JPOP</button>
-          <button onclick="onclick_genre('ANI')">ANI</button>
-          <button onclick="onclick_genre('SOLO')">SOLO</button>
-          <button onclick="onclick_genre('GROUP')">GROUP</button>
-
-
-          <!-- <button onclick="location.href='main_hippop.html'">힙합</button>
-          <button onclick="location.href='main_singer.html'">POP</button>
-          <button onclick="location.href='main_singer.html'">OST</button>
-          <button onclick="location.href='main_singer.html'">트롯</button>
-          <button onclick="location.href='main_singer.html'">EDM</button>
-          <button onclick="location.href='main_singer.html'">JAZZ</button>
-          <button onclick="location.href='main_singer.html'">CLASSIC</button>
-          <button onclick="location.href='main_singer.html'">JPOP</button> -->
-          
+        
+        
 
         </div> 
-        
-    
-        
-        </body>
+        <!-- 사이드바 -->
+        <!-- <div class="sidebar_content">
+          <ul>
+            <li><a>로그인</a></li>
+            <li><a>마이페이지</a></li>
+            <li><a>마이뮤직</a></li>
+            <li><a>친구목록</a></li>
+          </ul>
+          <label for="sidebar"></label>
+        </div> -->
+        <!-- 사이드바 외 영역 -->
+        <!-- <label for="sidebar" class="background"></label> -->
+</body>
+
            <script src="script.js"></script>
 
 </html
+

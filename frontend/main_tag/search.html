@@ -1,0 +1,85 @@
+<head>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        /* 장르 버튼이 들어있는 컨테이너 */
+        .btn_container {
+        margin: 120px auto;
+        padding: 30px 30px;
+        width: 95%;
+        max-height:700px;
+        height:100%;
+        background-color: white;
+        float:center;
+        border-radius:20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        }
+    </style>
+</head>
+
+
+<!DOCTYPE html>
+
+<html lang="ko">
+  <header>
+
+    <h1> 추천 해드릴 곡은 </h1>
+    <nav>
+      <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
+
+          
+    </nav>
+
+    <script>    
+      window.onload = function(){
+        function searchToggle(obj, evt){
+        var container = $(obj).closest('.search-wrapper');
+          if(!container.hasClass('active')){
+            container.addClass('active');
+            evt.preventDefault();
+          }
+          else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0)
+          {
+            container.removeClass('active');
+             // clear input
+             container.find('.search-input').val('');
+          }
+      }
+
+        let c1 = document.querySelectorAll('label');
+        c1.addEventListener('click',function(){
+          c1.classList.toggle('flipped')
+          console.log('ㅠㅠ')
+        })
+      }
+        
+    </script>
+    </header>
+    
+</form>
+ </div>
+
+ 
+        <!-- 검색창  -->
+        <div class = "test_container">
+            <form class="box">
+              <h1>{username}님이 좋아하실 곡은</h1>
+              
+           </div>
+
+
+         <!-- 흰색 배경창 -->
+        <!-- <div class="btn_container">
+          <div class="checkbox_container" >
+          </div>
+          <div id='result'></div>
+          <br> -->
+
+
+        </div> 
+        </body>
+           <script src="script.js"></script>
+
+</html
