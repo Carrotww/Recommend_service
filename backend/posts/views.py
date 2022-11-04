@@ -28,8 +28,6 @@ class ArticleDetailView(APIView):
         serializer = PostListSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-  
-
 
     def put(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
@@ -85,6 +83,7 @@ class CommentDetailView (APIView):
         else:
             return Response("권한이 없습니다.")
 
+
     def delete(self, request, post_id, coment_id):
         comment = get_object_or_404(Post, id=coment_id)
         if request.user == comment.user:
@@ -102,3 +101,4 @@ class LikeView(APIView):
         else:
             post.likes.add(request.user)
             return Response("like", status=status.HTTP_200_OK)
+
