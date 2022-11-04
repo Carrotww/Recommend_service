@@ -9,6 +9,7 @@ import random
 from pprint import pprint
 
 
+
 class CategoryView(APIView):
     def get(self, request): # 곡/아티스트 tag 전체 조회
         category = Category.objects.all()

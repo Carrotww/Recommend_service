@@ -12,6 +12,7 @@ class CategoryListSerializer(serializers.ModelSerializer): # 카테고리(tag)
         model = Category
         fields = ['category',]
 
+
 class MusicStoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
@@ -21,3 +22,4 @@ class testSerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['category',]
+
