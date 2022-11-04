@@ -155,9 +155,9 @@ button {
 }
 
 
-input[type="checkbox"]{
+/* input[type="checkbox"]{
   display: none;
-}
+} */
 
 input:checked + label{
   background-color:rgba(126, 126, 126, 0.9);
