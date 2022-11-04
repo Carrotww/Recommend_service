@@ -6,14 +6,22 @@
 <!DOCTYPE html>
 
 <html lang="ko">
-  <header>
+  
+<!-- 사이드바 만들기 -->
+<!-- <input type="checkbox" id="sidebar"> -->
+
+<header>
+  <!-- 헤더 네비게이션 -->
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
       <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
-
+      <div>
+        <label for="sidebar" class="menu"></label>
+      </div>
           
     </nav>
+    
 
     <script>    
       window.onload = function(){
@@ -39,8 +47,15 @@
       }
         
     </script>
-    </header>
-    
+</header>
+
+<!-- 본문영역 -->
+<!-- <div class="sidebar_container">
+  <img src="">
+</div> -->
+
+
+<body>
 
 
     
@@ -105,7 +120,20 @@
           
 
         </div> 
-        </body>
+        <!-- 사이드바 -->
+        <!-- <div class="sidebar_content">
+          <ul>
+            <li><a>로그인</a></li>
+            <li><a>마이페이지</a></li>
+            <li><a>마이뮤직</a></li>
+            <li><a>친구목록</a></li>
+          </ul>
+          <label for="sidebar"></label>
+        </div> -->
+        <!-- 사이드바 외 영역 -->
+        <!-- <label for="sidebar" class="background"></label> -->
+</body>
+
            <script src="script.js"></script>
 
 </html
