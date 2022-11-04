@@ -28,8 +28,6 @@ class ArticleDetailView(APIView):
         serializer = PostListSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-  
-
 
     def put(self, request, post_id):
         post = Post.objects.all(id=post_id)
