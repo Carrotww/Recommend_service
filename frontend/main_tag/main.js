@@ -1,6 +1,7 @@
 window.onload = ()=>{
     console.log("load")
     show_tag_fuc() // backend에서 tag 가져오기
+    alltag = new Array(); // 전체 테그 담을 리스트 선언
 
 }   
 
@@ -20,46 +21,56 @@ async function show_tag_fuc() {
       })
     // Promise 안에 담긴 데이터 꺼내오기
     .then(data => {
-        console.log(data)
-        var tags= document.getElementById("tags");
+        console.log(data) // tag 목록 확인
+        var tags= document.getElementById("all_tags");
         for (i=0; i < data.length; i++){
-            const t = document.createElement("button");
-            // t.class = "mylabel"
-            // t.type = "checkbox"
-            t.onclick ='dosomething(this.innerText)'
-            t.innerText = data[i]['category']
-            const tag = tags.appendChild(t)
+            const tag = document.createElement("button"); // 버튼 요소 생성
+            tag.setAttribute("class","mylabel") // css class 지정
+            tag.setAttribute("onclick","TagsPick(this.innerText)") // 선택한 버튼 클릭 시 해당 함수 호출
+            tag.innerText = data[i]['category'] // 버튼이름 값 지정
+            const tags = all_tags.appendChild(tag) // all_tags 안에 tag 추가
+            console.log(tags)
         }
     });
 }
 
-function dosomething(val){
-    console.log(val);
+async function AllTagsPick(val) {
+    if (alltag.includes(val)){
+        for(i=0; i < alltag.length; i++){
+            if (alltag[i] == val){
+                alltag.splice(i,i);
+                i--; // 해당 인덱스도 삭제
+            } 
+        }
+    }
+    else {
+        if (alltag.length == 5){
+            alert("6개 이상 tag를 선택할 수 없습니다.")
+        }
+        else {
+            alltag.push(val);
+        }
+    }
 }
 
-async function is_checked() {
-    console.log("음악추천받기 버튼 클릭"); // 버튼이 눌러지고 있는 지 확인 필수
 
-   
-    // for (i=0; i < tags.length; i++){
-       
-    //     const check_box = document.getElementById("tags");
-    //     if (check_box.checked) {
-    //         let tags = document.getElementById(i).innerText;
-    //         console.log(tags)
-    //     } 
-    // }
-    // console.log(tags);
-
-    // const response = await fetch('http://210.113.127.22:8000/music/', {
-    //     headers:{
-    //         'content-type':'application/json',
-    //     },
-    //     method:'POST',
-    //     body: JSON.stringify({
-    //         "category":tags
-    //     })
-    // })
-    // const response_json = await response.json();
+// 선택한 버튼 값 가져오기
+async function TagsPick(val) {
+    AllTagsPick(val);   
 }
 
+
+// 테그들 목록 백엔드로 POST 전달
+async function AllTagPost() {
+    const response = await fetch('http://210.113.127.22:8000/music_search/', {
+        headers:{
+            'content-type':'application/json',
+        },
+        method:'POST',
+        body: JSON.stringify({
+            "category":alltag
+        })
+    })
+    const response_json = await response.json();
+    return response_json
+}
