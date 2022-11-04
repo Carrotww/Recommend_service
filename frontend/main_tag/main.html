@@ -16,17 +16,8 @@
     </nav>
 
     <script>    
-
-
-      // url에서 값 가져오기
-      // function onclick_genre(genre){
-      //   var url = 'main_singer.html';
-      //   var data = '?genre=' + genre;
-      //   location.href= url+data;
-      // }
-
-
-      function searchToggle(obj, evt){
+      window.onload = function(){
+        function searchToggle(obj, evt){
         var container = $(obj).closest('.search-wrapper');
           if(!container.hasClass('active')){
             container.addClass('active');
@@ -40,41 +31,25 @@
           }
       }
 
-      // // 버튼 눌리면 유지 (체크박스)
-      // function getCheckboxValue()  {
-      //   // 선택된 목록 가져오기
-     //   const query = 'input[name="animal"]:checked';
-      //   const selectedEls = 
-      //       document.querySelectorAll(query);
-      
-     //   // 선택된 목록에서 value 찾기
-      //   let result = '';
-      //   selectedEls.forEach((el) => {
-     //     result += el.value + ' ';
-      //   });
-
-      //   // 출력
-     //   document.getElementById('result').innerText
-     //     = result;
-      //   }
+        let c1 = document.querySelectorAll('label');
+        c1.addEventListener('click',function(){
+          c1.classList.toggle('flipped')
+          console.log('ㅠㅠ')
+        })
+      }
         
-
-
-    
-
-
-
     </script>
-  </header>
+    </header>
     
 
 
+    
         <!-- 검색창  -->
          <div class = "test_container">
           <form class="box">
             <h1>What do you want to listen? </h1>
             <input type="text" value="Type.."   onclick="this.value='';" >
-            <input type="submit" value="Search">
+            <input type="submit" href="search.html"  value="Search">
           </form>
          </div>
 
@@ -82,19 +57,30 @@
          <!-- 태그 -->
         <div class="btn_container">
           
-          
-          <!-- 체크박스
+          <div class="checkbox_container" >
+          <!-- 체크박스 -->
+            <input type='checkbox'name='KPOP'value='KPOP' id="KPOP"/><label for="KPOP" class="mylabel" >KPOP</label>
+            <input type='checkbox'name='OST'value='OST' id="OST"/><label for="OST" class="mylabel" >OST</label>
+            <input type='checkbox'name='ROCK'value='ROCK' id="ROCK"/><label for="ROCK" class="mylabel" >ROCK</label>
+            <input type='checkbox'name='POP'value='POP' id="POP"/><label for="POP" class="mylabel" >POP</label>
+            <input type='checkbox'name='HIPHOP'value='HIPHOP' id="HIPHOP"/><label for="HIPHOP" class="mylabel" >HIPHOP</label>
+            <input type='checkbox'name='EDM'value='EDM' id="EDM"/><label for="EDM" class="mylabel" >EDM</label>
+            <input type='checkbox'name='CLASSIC'value='CLASSIC' id="CLASSIC"/><label for="CLASSIC" class="mylabel" >CLASSIC</label>
+            <input type='checkbox'name='JPOP'value='JPOP' id="JPOP"/><label for="JPOP" class="mylabel" >JPOP</label>
+            <input type='checkbox'name='ANI'value='ANI' id="ANI"/><label for="ANI" class="mylabel" >ANI</label>
+            <input type='checkbox'name='SOLO'value='SOLO' id="SOLO"/><label for="SOLO" class="mylabel" >SOLO</label>
+            <input type='checkbox'name='GROUP'value='GROUP' id="GROUP"/><label for="GROUP" class="mylabel" >GROUP</label>
+          </div>
 
-          <button type='checkbox' onclick="onclick_genre('KPOP')">멈머</button>
-          <input type='checkbox'name='animal'value='dog'/> 개
-          <input type='checkbox' name='animal' value='cat' /> 고양이
-          <button onclick='getCheckboxValue()'>확인</button>
+          <div class="">
+            <button class="submit_container" onclick='getCheckboxValue()'>확인</button>
+          </div>
           <div id='result'></div>
-          <br> -->
-         
+          <br>
+
 
           <!-- 장르 선택 -->
-          <button onclick="onclick_genre('KPOP')">KPOP</button>
+          <!-- <button onclick="onclick_genre('KPOP')">KPOP</button>
           <button onclick="onclick_genre('OST')">OST</button>
           <button onclick="onclick_genre('ROCK')">ROCK</button>
           <button onclick="onclick_genre('POP')">POP</button>
@@ -105,7 +91,7 @@
           <button onclick="onclick_genre('JPOP')">JPOP</button>
           <button onclick="onclick_genre('ANI')">ANI</button>
           <button onclick="onclick_genre('SOLO')">SOLO</button>
-          <button onclick="onclick_genre('GROUP')">GROUP</button>
+          <button onclick="onclick_genre('GROUP')">GROUP</button> -->
 
 
           <!-- <button onclick="location.href='main_hippop.html'">힙합</button>
@@ -119,9 +105,6 @@
           
 
         </div> 
-        
-    
-        
         </body>
            <script src="script.js"></script>
 
