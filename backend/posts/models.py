@@ -9,14 +9,14 @@ class Post(models.Model):
     image = models.ImageField(blank=True, upload_to='%Y/%m/')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    likes = models.ManyToManyField(User, related_name="post_likes")
+    likes = models.ManyToManyField(User, related_name="post_likes", blank=True)
 
     def __str__(self):
         return str(self.title)
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_user')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment_user")
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comment_post")
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)

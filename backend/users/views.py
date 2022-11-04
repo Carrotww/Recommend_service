@@ -51,8 +51,8 @@ class FollowView(APIView):
 
 
 class ProfileView(APIView):
-    def get(self, request, user_id):
-        user = get_object_or_404(User, id=user_id)
+    def get(self, request, username):
+        user = get_object_or_404(User, id=username)
         serializer = UserProfileSerializer(user)
 
         return Response(serializer.data)

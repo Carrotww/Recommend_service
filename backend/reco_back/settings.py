@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "users",
     "music",
     "posts",
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -133,6 +134,8 @@ MEDIA_URL = "/media/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 AUTH_USER_MODEL = 'users.User'
+
+CORS_ALLOW_ALL_ORIGINS = True
+
