@@ -1,5 +1,6 @@
 window.onload = ()=>{
     console.log("load")
+
     show_tag_fuc() // backend에서 tag 가져오기
     alltag = new Array(); // 전체 테그 담을 리스트 선언
 
@@ -85,4 +86,5 @@ async function AllTagPost() {
     })
     const response_json = await response.json();
     return response_json
+
 }
