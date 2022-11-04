@@ -1,6 +1,7 @@
 import requests
 import json
 import time
+import random
 
 def lastfm_get(payload):
     API_KEY = '552c5795a19b23b431b21d1b47c080e6'
@@ -86,13 +87,14 @@ def lookup_track_search(tag):
         'track': tag
     })
     music = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track']]
-    # 랜덤하게 1~3 개 뽑아오는 로직 추가 예정
+    # 랜덤하게 2개 뽑아와서 select_music에 넣음
+    select_music = random.sample(music, 2)
     # pprint(music)
 
-    return music
+    return select_music
 
 # print(lookup_artist_tags('버즈'))
 # print(lookup_all_tags())
 # print(lookup_similar_tag('spring'))
 # temp = ['rock', 'jazz']
-# print(lookup_track_search(temp))
+print(lookup_track_search(['rock', 'pop']))
