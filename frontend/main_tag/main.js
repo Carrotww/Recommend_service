@@ -34,6 +34,8 @@ async function show_tag_fuc() {
     });
 }
 
+
+// tag 값 목록으로 묶어주기
 async function AllTagsPick(val) {
     if (alltag.includes(val)){
         for(i=0; i < alltag.length; i++){
@@ -54,21 +56,31 @@ async function AllTagsPick(val) {
 }
 
 
-// 선택한 버튼 값 가져오기
+// tag 버튼 값 가져오기
 async function TagsPick(val) {
     AllTagsPick(val);   
 }
 
 
-// 테그들 목록 백엔드로 POST 전달
+// 테그들 목록 백엔드로 POST 전달 <확인버튼>
 async function AllTagPost() {
+    var str = ""
+    for (i=0; i < alltag.length; i++) {
+        if (i == alltag.length-1) {
+            str += alltag[i]
+        }
+        else {
+            str += alltag[i]+","
+        }
+    }
+    console.log(str)
     const response = await fetch('http://210.113.127.22:8000/music_search/', {
         headers:{
             'content-type':'application/json',
         },
         method:'POST',
         body: JSON.stringify({
-            "category":alltag
+            "category":str
         })
     })
     const response_json = await response.json();
