@@ -1,4 +1,4 @@
-# import requests
+import requests
 import json
 import time
 import random
@@ -28,6 +28,7 @@ def lastfm_get(payload):
 # test = {'method': 'chart.gettopartists'}
 # temp = lastfm_get(test)
 # jprint(temp.json()['artists']['@attr'])
+
 
 def lookup_artist_tags(artist):
     response = lastfm_get({
