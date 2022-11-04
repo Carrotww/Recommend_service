@@ -1,0 +1,315 @@
+<head>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            color: white;
+            background: #292929;
+            font-size: 1vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .recomment_to_user {
+            margin: 10px 50px 50xp;
+            z-index: 9;
+
+        }
+
+        /* 장르 버튼이 들어있는 컨테이너 */
+        .recommend_container {
+            
+            border: 1px solid red;
+            margin: 220px auto;
+            padding: 30px 30px;
+            width: 95%;
+            max-height: 700px;
+            height: 70%;
+            background-color: rgb(71, 0, 0);
+            float: center;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            font-size:15%;
+        }
+        .recommend_container img{
+            border: 1px solid red;
+
+            width: 110%;
+            border-radius: 5px;
+        }
+
+
+
+        .recommend_container flex-item_like{
+            border: 1px solid red;
+
+
+            width: 90%;
+            border-radius: 5px;
+        }
+
+
+
+    
+
+
+
+
+
+        .recommend_music {
+            border: 1px red;
+            margin: 10px;
+            padding: 30px 30px;
+            width: 30%;
+            max-height: 600px;
+            height: 30%;
+            background-color: rgb(255, 181, 181);
+            float: center;
+            border-radius: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .recommend_music img {
+            /* border: 1px red; */
+            
+            margin: 10px;
+            padding: 10px 30px;
+            height: 40%;
+            background-color: rgb(255, 0, 0);
+
+        }
+
+   
+
+
+        button {
+            margin: 10px 10px;
+            padding: 10px auto;
+            max-width: 200px;
+            width:10%;
+            height:15%;
+            color:rgb(8, 182, 235) ;
+            background-color: #080707;
+            font-size: 1.7vw;
+            border:none;
+            border-radius:20px;
+            transition: 0.3s;
+            left:auto;  
+}
+
+
+        /* 음악 창  */
+
+        .flex-container{
+            margin: 10px 10px;
+            float: 50px 10px;
+
+            display: flex;
+            margin: 5px;
+            width: 40%;
+            max-width: 300px;
+            height:30vh;
+            max-height: 100px;
+            border:1px solid rgb(0, 255, 174);
+            border-radius: 10px;
+            background-color: #ffcccc;
+            color: rgb(0, 0, 0);
+        }
+
+
+        /* 음악 창 속 배열 */
+
+        /* .flex-container.flex-start{align-items: flex-start;}
+        .flex-container.flex-end{align-items: flex-end;} */
+        .flex-container.center{
+            margin: 10px;
+            align-items: center;
+        }
+        /* .flex-container.stretch{align-items: stretch;}
+        .flex-container.baseline{align-items: baseline;} */
+
+
+        .flex-item{
+            border: 1px solid red;
+
+            width: 40%;
+            margin: 5px;
+            text-align: center;
+        }
+        .color-red{ background-color: darksalmon; }
+        .color-blue{ background-color: dodgerblue; }
+        .color-green{ background-color: forestgreen; }
+        .color-yellow{ background-color: gold; }
+        .color-pupple{ background-color: rebeccapurple; }
+        .color-orange{ background-color: orange; }
+        .font1{ font-size: 10px; }
+        .font2{ font-size: 10px; }
+        .font3{ font-size: 10px; }
+        .font4{ font-size: 10px; }
+        .font5{ font-size: 10px; }
+
+
+        /* 스크롤바 숨기기 */
+        .recommend_container::-webkit-scrollbar{
+            display: none;
+        }
+        
+
+    </style>
+</head>
+
+
+<!DOCTYPE html>
+
+<html lang="ko">
+<header>
+
+    <h1> 추천 해드릴 곡은 </h1>
+    <nav>
+        <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
+    </nav>
+
+    <script>
+        const heartSvg = document.querySelector('.feed-icon.like-default');
+const heartPath = document.querySelector('.feed-icon.like-default path');
+
+heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
+function fillHeartRed(heartSvg, heartPath){
+	if(heartSvg.classList.contains("like-default")){
+		heartSvg.classList.remove("like-default");
+		heartSvg.classList.add("like-fill");
+		heartPath.setAttribute('d','M34.6 3....')
+	}
+	else{
+	 	heartSvg.classList.remove("like-fill");
+	 	heartSvg.classList.add("like-default");
+	 	heartPath.setAttribute('d','M34.6 6....')
+	 }
+}
+
+
+
+    </script>
+</header>
+
+<body>
+
+
+    <!-- 검색창  -->
+    <div class="recommend_to_user">
+        <form class="box">
+            <h1>{username}님이 좋아하실만한 곡은...</h1>
+
+    </div>
+
+    <!-- 흰색 배경창 -->
+    <!-- 컨테이너에 스크롤바 -->
+    <div class="recommend_container" style="overflow:auto;width: 95%; max-height: 700px; height: 70%;" >
+        <div class="flex-container center">
+            <div class="flex-item" ><img src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg"></div>
+            <div class="flex-item" >가나다라마바사아자카차타파하</div>
+            <div class="flex-item">가수 명</div>
+            <div class="flex-item_like"><img  src="https://velog.velcdn.com/images/taeeuno_o/post/8dcb42de-99c9-4280-80fd-be1ecc2ce75e/image.png"  style="width: 50%;"/></div>
+        </div>
+
+        <div class="flex-container ">
+            <div class="flex-item color-green font1"><img src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg"></div>
+            <div class="flex-item" >가나다라마바사아자카차타파하</div>
+            <div class="flex-item">가수 명</div>
+            <div class="flex-item"><img  src="https://velog.velcdn.com/images/taeeuno_o/post/8dcb42de-99c9-4280-80fd-be1ecc2ce75e/image.png"  style="width: 50%;"/></div>
+        </div>
+        
+        <div class="flex-container ">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4"></div>
+        </div>
+        
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        <div class="flex-container center">
+            <div class="flex-item color-green font1">앨범표지</div>
+            <div class="flex-item color-green font2">곡 명</div>
+            <div class="flex-item color-green font3">가수 명</div>
+            <div class="flex-item color-green font4">좋아요 버튼</div>
+        </div>
+
+        
+
+        
+
+
+
+    </div>
+
+
+    
+    
+
+
+
+</body>
+<script src="script.js"></script>
+
+</html>

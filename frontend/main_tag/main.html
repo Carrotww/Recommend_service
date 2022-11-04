@@ -1,21 +1,30 @@
 <head>
-    <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="main.css">
 </head>
-
-
 <!DOCTYPE html>
-
 <html lang="ko">
-  <header>
+
+  
+<!-- 사이드바 만들기 -->
+<!-- <input type="checkbox" id="sidebar"> -->
+
+<header>
+  <!-- 헤더 네비게이션 -->
+
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
       <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
-
+      <div>
+        <label for="sidebar" class="menu"></label>
+      </div>
           
     </nav>
+    
 
-    <script>    
+
+    <script src="main.js">
+
       window.onload = function(){
         function searchToggle(obj, evt){
         var container = $(obj).closest('.search-wrapper');
@@ -39,8 +48,15 @@
       }
         
     </script>
-    </header>
-    
+</header>
+
+<!-- 본문영역 -->
+<!-- <div class="sidebar_container">
+  <img src="">
+</div> -->
+
+
+<body>
 
 
     
@@ -57,55 +73,31 @@
          <!-- 태그 -->
         <div class="btn_container">
           
-          <div class="checkbox_container" >
-          <!-- 체크박스 -->
-            <input type='checkbox'name='KPOP'value='KPOP' id="KPOP"/><label for="KPOP" class="mylabel" >KPOP</label>
-            <input type='checkbox'name='OST'value='OST' id="OST"/><label for="OST" class="mylabel" >OST</label>
-            <input type='checkbox'name='ROCK'value='ROCK' id="ROCK"/><label for="ROCK" class="mylabel" >ROCK</label>
-            <input type='checkbox'name='POP'value='POP' id="POP"/><label for="POP" class="mylabel" >POP</label>
-            <input type='checkbox'name='HIPHOP'value='HIPHOP' id="HIPHOP"/><label for="HIPHOP" class="mylabel" >HIPHOP</label>
-            <input type='checkbox'name='EDM'value='EDM' id="EDM"/><label for="EDM" class="mylabel" >EDM</label>
-            <input type='checkbox'name='CLASSIC'value='CLASSIC' id="CLASSIC"/><label for="CLASSIC" class="mylabel" >CLASSIC</label>
-            <input type='checkbox'name='JPOP'value='JPOP' id="JPOP"/><label for="JPOP" class="mylabel" >JPOP</label>
-            <input type='checkbox'name='ANI'value='ANI' id="ANI"/><label for="ANI" class="mylabel" >ANI</label>
-            <input type='checkbox'name='SOLO'value='SOLO' id="SOLO"/><label for="SOLO" class="mylabel" >SOLO</label>
-            <input type='checkbox'name='GROUP'value='GROUP' id="GROUP"/><label for="GROUP" class="mylabel" >GROUP</label>
-          </div>
+          <div class="checkbox_container" id="all_tags"></div>
 
           <div class="">
-            <button class="submit_container" onclick='getCheckboxValue()'>확인</button>
+            <button class="submit_container" onclick='AllTagPost()'>확인</button>
           </div>
           <div id='result'></div>
-          <br>
-
-
-          <!-- 장르 선택 -->
-          <!-- <button onclick="onclick_genre('KPOP')">KPOP</button>
-          <button onclick="onclick_genre('OST')">OST</button>
-          <button onclick="onclick_genre('ROCK')">ROCK</button>
-          <button onclick="onclick_genre('POP')">POP</button>
-          <button onclick="onclick_genre('HIPHOP')">HIP</button>
-          <button onclick="onclick_genre('EDM')">EDM</button>
-          <button onclick="onclick_genre('JAZZ')">JAZZ</button>
-          <button onclick="onclick_genre('CLASSIC')">CLASSIC</button>
-          <button onclick="onclick_genre('JPOP')">JPOP</button>
-          <button onclick="onclick_genre('ANI')">ANI</button>
-          <button onclick="onclick_genre('SOLO')">SOLO</button>
-          <button onclick="onclick_genre('GROUP')">GROUP</button> -->
-
-
-          <!-- <button onclick="location.href='main_hippop.html'">힙합</button>
-          <button onclick="location.href='main_singer.html'">POP</button>
-          <button onclick="location.href='main_singer.html'">OST</button>
-          <button onclick="location.href='main_singer.html'">트롯</button>
-          <button onclick="location.href='main_singer.html'">EDM</button>
-          <button onclick="location.href='main_singer.html'">JAZZ</button>
-          <button onclick="location.href='main_singer.html'">CLASSIC</button>
-          <button onclick="location.href='main_singer.html'">JPOP</button> -->
-          
+        
+        
 
         </div> 
-        </body>
+        <!-- 사이드바 -->
+        <!-- <div class="sidebar_content">
+          <ul>
+            <li><a>로그인</a></li>
+            <li><a>마이페이지</a></li>
+            <li><a>마이뮤직</a></li>
+            <li><a>친구목록</a></li>
+          </ul>
+          <label for="sidebar"></label>
+        </div> -->
+        <!-- 사이드바 외 영역 -->
+        <!-- <label for="sidebar" class="background"></label> -->
+</body>
+
            <script src="script.js"></script>
 
 </html
+
