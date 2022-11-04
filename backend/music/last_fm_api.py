@@ -29,6 +29,7 @@ def lastfm_get(payload):
 # temp = lastfm_get(test)
 # jprint(temp.json()['artists']['@attr'])
 
+
 def lookup_artist_tags(artist):
     response = lastfm_get({
         'method': 'artist.getTopTags',
