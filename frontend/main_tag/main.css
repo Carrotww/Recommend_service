@@ -213,6 +213,12 @@ input:checked + label{
   box-shadow: 0 2px 4px;
 }
 
+.item_like:hover{
+  background:rgba(126, 126, 126, 0.9);
+  cursor:pointer;
+  box-shadow: 0 2px 4px;
+}
+
 
 
 .checkbox-container {
@@ -264,6 +270,70 @@ input:checked + label{
   border-radius: 3px;
   box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
   }
+
+
+
+  /* 구글 아이콘 사용 */
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(path/to/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(path/to/MaterialIcons-Regular.woff2) format('woff2'),
+        url(path/to/MaterialIcons-Regular.woff) format('woff'),
+        url(path/to/MaterialIcons-Regular.ttf) format('truetype');
+    }
+
+    .material-icons-heart {
+      border: 2px solid red;
+      margin: 5px 5px;
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 0;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      color:rgb(255, 211, 211);
+     
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+     
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+     
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+     
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+      }
+
+      .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
+
+
+     
+  .material-symbols-outlined {
+  /* margin: 5px 5px;
+  font-variation-settings:
+  'FILL'0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48 */
+}
+.material-symbols-outlined:hover{
+  font-variation-settings:
+  'FILL'1;
+  color: red;
+}
+
 
 
 
