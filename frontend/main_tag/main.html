@@ -1,17 +1,16 @@
 <head>
-    <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="main.css">
 </head>
-
-
 <!DOCTYPE html>
-
 <html lang="ko">
+
   
 <!-- 사이드바 만들기 -->
 <!-- <input type="checkbox" id="sidebar"> -->
 
 <header>
   <!-- 헤더 네비게이션 -->
+
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
@@ -23,7 +22,9 @@
     </nav>
     
 
-    <script>    
+
+    <script src="main.js">
+
       window.onload = function(){
         function searchToggle(obj, evt){
         var container = $(obj).closest('.search-wrapper');
@@ -72,21 +73,9 @@
          <!-- 태그 -->
         <div class="btn_container">
           
-          <div class="checkbox_container" >
-          <!-- 체크박스 -->
-            <input type='checkbox'name='KPOP'value='KPOP' id="KPOP"/><label for="KPOP" class="mylabel" >KPOP</label>
-            <input type='checkbox'name='OST'value='OST' id="OST"/><label for="OST" class="mylabel" >OST</label>
-            <input type='checkbox'name='ROCK'value='ROCK' id="ROCK"/><label for="ROCK" class="mylabel" >ROCK</label>
-            <input type='checkbox'name='POP'value='POP' id="POP"/><label for="POP" class="mylabel" >POP</label>
-            <input type='checkbox'name='HIPHOP'value='HIPHOP' id="HIPHOP"/><label for="HIPHOP" class="mylabel" >HIPHOP</label>
-            <input type='checkbox'name='EDM'value='EDM' id="EDM"/><label for="EDM" class="mylabel" >EDM</label>
-            <input type='checkbox'name='CLASSIC'value='CLASSIC' id="CLASSIC"/><label for="CLASSIC" class="mylabel" >CLASSIC</label>
-            <input type='checkbox'name='JPOP'value='JPOP' id="JPOP"/><label for="JPOP" class="mylabel" >JPOP</label>
-            <input type='checkbox'name='ANI'value='ANI' id="ANI"/><label for="ANI" class="mylabel" >ANI</label>
-            <input type='checkbox'name='SOLO'value='SOLO' id="SOLO"/><label for="SOLO" class="mylabel" >SOLO</label>
-            <input type='checkbox'name='GROUP'value='GROUP' id="GROUP"/><label for="GROUP" class="mylabel" >GROUP</label>
-          </div>
+          <div class="checkbox_container" id="all_tags"></div>
 
+<<<<<<< HEAD
           <div class="ok " >
             <button  onclick="location.href='recommend.html'" class="submit_container" >확인</button>
           </div>
@@ -120,6 +109,14 @@
           <button onclick="location.href='main_singer.html'">CLASSIC</button>
           <button onclick="location.href='main_singer.html'">JPOP</button> -->
           
+=======
+          <div class="">
+            <button class="submit_container" onclick='AllTagPost()'>확인</button>
+          </div>
+          <div id='result'></div>
+        
+        
+>>>>>>> 29ec0315f5410381d7ac99a811019724d8558d9d
 
         </div> 
         <!-- 사이드바 -->
@@ -139,3 +136,4 @@
            <script src="script.js"></script>
 
 </html
+
