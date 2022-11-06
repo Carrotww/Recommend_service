@@ -7,7 +7,7 @@ window.onload = ()=>{
 }   
 
 
-// // tag 불러오는 함수
+// tag 불러오는 함수
 async function show_tag_fuc() {
     const response = await fetch('http://127.0.0.1:8000/music/', {
         headers:{
@@ -92,14 +92,14 @@ async function AllTagPost() {
     // var temp = JSON.parse(localStorage.getItem('tempdata'));
     
     // 추천 결과 데이터들을 쿠키에 저장 후 다른 페이지로 넘겨줄 예정
-    document.cookie = "recommend="+JSON.stringify(music_data); // 쿠카 저장
-    goto_reco_page()
+    document.cookie = "recommend="+JSON.stringify(music_data); // 자바스크립트의 값을 JSON 문자열로 변환 후 쿠카 저장
+    // goto_reco_page() 다른 페이지로 이동
+    move_page('recommend.html')
 
 }
-    
 
-function goto_reco_page()  {
-    window.location.href = 'recommend.html'
-  }
-
+// 원하는 페이지로 이동하는 함수
+function move_page(page)  {
+    window.location.href = page
+}
 
