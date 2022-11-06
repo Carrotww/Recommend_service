@@ -6,30 +6,35 @@ window.onload = ()=>{
 
 // 쿠키 가져오는 함수  (작업중입니다)
 
-function getCookie = (key) => {
-    let cookieKey = key + "="; 
-    let value = "";
-    const cookieArr = document.cookie.split("}");
+// function getCookie = (key) => {
+//     let cookieKey = key + "="; 
+//     let value = "";
+//     const cookieArr = document.cookie.split("}");
     
-    for(let i = 0; i < cookieArr.length; i++) {
-      if(cookieArr[i][0] === " ") {
-        cookieArr[i] = cookieArr[i].substring(1);
-      }
+//     for(let i = 0; i < cookieArr.length; i++) {
+//       if(cookieArr[i][0] === " ") {
+//         cookieArr[i] = cookieArr[i].substring(1);
+//       }
       
-      if(cookieArr[i].indexOf(cookieKey) === 0) {
-        value = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
-        return value;
-      }
-    }
-    return value;
-  }
+//       if(cookieArr[i].indexOf(cookieKey) === 0) {
+//         value = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+//         return value;
+//       }
+//     }
+//     return value;
+//   }
 
 // 추천곡들의 정보를 쿠카에서 불러오는 함수
 async function recommend_info_fuc() {
     // 쿠키에서 정보 불러오기
     // 정보 추출, html 요소로 만들어주기
-    document.cookie.
-    console.log(response.json())
+    // console.log(response.json())
+    var music_data = JSON.parse(localStorage.getItem('tempdata'));
+
+    for (i=0; i < music_data.length; i++) {
+      console.log('가수 :', music_data[i]['singer'], '제목 :', music_data[i]['title'], 'url :', music_data[i]['url'])
+    }
+    
 
     // const response = await fetch('http://127.0.0.1:8000/music_search/', {
     //     headers:{
