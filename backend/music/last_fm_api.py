@@ -92,7 +92,7 @@ def lookup_track_search(tag:list):
             response = lastfm_get({
             'method': 'track.search',
             'track': i})
-            recommend_all_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track']]
+            recommend_all_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']] # 검색결과 중 1.곡명, 2.아티스트, 3.해당곡 상세페이지 url 추출
             recommend_music_list.append(random.choice(recommend_all_list))
 
         return recommend_music_list
@@ -101,7 +101,7 @@ def lookup_track_search(tag:list):
         response = lastfm_get({
         'method': 'track.search',
         'track': tag})
-        search_result_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track'][0:5]]
+        search_result_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track'][0:5]] # 검색결과 중 1.곡명, 2.아티스트, 3.해당곡 상세페이지 url 추출
 
         return search_result_list
 

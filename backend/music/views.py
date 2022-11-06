@@ -46,14 +46,13 @@ class Category_Database_view(APIView):
 
 class Category_search_view(APIView):
     def post(self, request):
-        search_list = request.data['category'].split(',')
-        search_result = last_fm_api.lookup_track_search(search_list)
-
-        searched_list = [{"singer": x[0], "title": x[1]} for x in search_result]
-
+        search_list = request.data['category'].split(',') # 사용자가 선택한 tag
+        search_result = last_fm_api.lookup_track_search(search_list) # tag 검색 결과
+        searched_list = [{"singer": x[0], "title": x[1], "url": x[2]} for x in search_result] # tag 검색 결과 항목별(곡명, 아티스트, 곡 상세페이지 url)로 분리
         for se in search_result:
             singer = se[0]
             title = se[1]
+            # url = se[2]
             try:
                 find_singer = Singer.objects.get(singer=singer)
             except:
@@ -70,6 +69,8 @@ class Category_search_view(APIView):
                 music_model = Music.objects.create(singer=singer, title=title)
                 music_model.save()
         
+        print(searched_list[0], searched_list[1])
+        
         return Response(searched_list, status=status.HTTP_200_OK)
 
         # serializer = MusicStoreSerializer(Music, data=search_list)
@@ -78,3 +79,8 @@ class Category_search_view(APIView):
         #     return Response(searched_list, status=status.HTTP_200_OK)
         # else:
         #     return Response(status=status.HTTP_400_BAD_REQUEST)
+
+class Music_result_view(APIView):
+    def get():
+        
+        return
