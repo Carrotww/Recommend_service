@@ -13,8 +13,6 @@ from rest_framework_simplejwt.views import (
 )
 from users.serializers import CustomTokenObtainPairSerializer, UserSerializer, UserProfileSerializer
 
-
-
 class UserView(APIView):
 
     def post(self, request):
@@ -25,10 +23,8 @@ class UserView(APIView):
         else:
             return Response({"message":f"${serializer.errors}"}, status=status.HTTP_400_BAD_REQUEST)
 
-
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
-
 
 class mockView(APIView):
     permission_classes = [permissions.IsAuthenticated]
@@ -37,8 +33,6 @@ class mockView(APIView):
         user.is_admin = True
         user.save()
         return Response("get 요청")
-
-
 class FollowView(APIView):
     def post(self, request, user_id):
         you = get_object_or_404(User, id=user_id)
@@ -52,6 +46,7 @@ class FollowView(APIView):
 
 
 class ProfileView(APIView): # 프로필 메인 뷰
+
     def get(self, request, username):
         user = get_object_or_404(User, username=username)
         print(request.user)
@@ -74,5 +69,4 @@ class ProfileEditView(APIView): # 프로필 편집 뷰
                 return Response(serializer.errors)
         else:
             return Response("권한이 없습니다.")
-
 

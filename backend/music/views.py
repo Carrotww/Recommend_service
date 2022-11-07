@@ -6,9 +6,6 @@ from music.serializers import CategoryListSerializer, MusicStoreSerializer
 from music.models import Category, Music, Singer
 from music import last_fm_api
 import random
-from pprint import pprint
-
-
 
 class CategoryView(APIView):
     def get(self, request): # 곡/아티스트 tag 전체 조회
@@ -16,7 +13,7 @@ class CategoryView(APIView):
         # 12개
         serializer = CategoryListSerializer(category, many=True)
         # serializer에서 category data를 모두 가져옴
-        random_tag = [x['category'] for x in serializer.data if x['category'] is not '']
+        random_tag = [x['category'] for x in serializer.data if x['category'] != '']
         # category 가 빈 값이 아닌것들중에서 데이터를 가져옴
         random_tag = list(set(random_tag))
         # set() 으로 중복 처리를 해 준 후 list로 만들어줌
@@ -46,30 +43,48 @@ class Category_Database_view(APIView):
 
 class Category_search_view(APIView):
     def post(self, request):
-        search_list = request.data['category'].split(',')
-        search_result = last_fm_api.lookup_track_search(search_list)
-
-        searched_list = [{"singer": x[0], "title": x[1]} for x in search_result]
+        search_list = request.data['category'].split(',') # 사용자가 선택한 tag
+        search_result = last_fm_api.lookup_track_search(search_list) # tag 검색 결과
+        searched_list = [{"singer": x[0], "title": x[1], "url": x[2], "youtube_url": x[3], "music_image": x[4]} for x in search_result] # tag 검색 결과 항목별(곡명, 아티스트, 곡 상세페이지 url)로 분리
 
         for se in search_result:
             singer = se[0]
             title = se[1]
+            url = se[2]
+            youtube_url = se[3]
+            music_image = se[4]
+            try:
+                find_singer = Singer.objects.get(singer=singer)
+            except:
+                new_singer = Singer.objects.create(singer=singer)
+                new_singer.save()
+            try:
+                find_singer = Singer.objects.get(singer=singer) # bring singer id object
+                find_music = Music.objects.get(singer=find_singer, title=title)
+            except:
+                new_music = Music.objects.create(
+                    singer=find_singer,
+                    title=title,
+                    music_url=url,
+                    youtube_url=youtube_url,
+                    music_image=music_image)
+                new_music.save()
+            
+        return Response(searched_list, status=status.HTTP_200_OK)
             try:
                 find_singer = Singer.objects.get(singer=singer)
             except:
                 find_singer = None
             if find_singer is None:
-                singer_model = Singer.objects.create(singer=singer)
-                singer_model.save()
+                new_singer = Singer.objects.create(singer=singer)
+                new_singer.save()
+                try:
+                    find_singer = Singer.objects.get(singer=singer) # bring singer id object
+                    find_music = Music.objects.get(singer=find_singer, title=title)
+                except:
+                    new_music = Music.objects.create(singer=new_singer, title=title, music_url=url, youtube_url=youtube_url)
+                    new_music.save()
             
-            try:
-                find_music = Music.objects.get(singer=singer, title=title)
-            except:
-                find_music = None
-            if find_music is None:
-                music_model = Music.objects.create(singer=singer, title=title)
-                music_model.save()
-        
         return Response(searched_list, status=status.HTTP_200_OK)
 
         # serializer = MusicStoreSerializer(Music, data=search_list)
