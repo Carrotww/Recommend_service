@@ -55,7 +55,7 @@ class PostListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count",)
+        fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count", "content",)
 
 class PostputSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()

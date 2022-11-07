@@ -134,22 +134,22 @@
                                 이름을 입력해주세요.
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <!-- <div class="col-md-6 mb-3">
                             <label for="nickname">별명</label>
                             <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 별명을 입력해주세요.
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-
+                    <!-- 
                     <div class="mb-3">
                         <label for="email">이메일</label>
                         <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
                         <div class="invalid-feedback">
                             이메일을 입력해주세요.
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="mb-3">
                         <label for="password">비밀번호</label>
@@ -159,68 +159,27 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="like">음악 취향<span class="text-muted">&nbsp;(필수 아님)</span></label>
                         <input type="text" class="form-control" id="like" placeholder="좋아하는 음악 장르를 적어주세요">
-                    </div>
-
+                    </div> -->
                     <div class="row">
-
-
                     </div>
-
-
                     <!-- 뒤로가기 버튼 & 회원가입완료 버튼 -->
                     <div class="bottom">
                         <!-- 뒤로가기버튼` -->
-                        <input onclick="history.back()" class="back" type="submit" value="◁">
+                        <input onclick="window.location.href='signin.html'" class=" " type="submit " value="◁ ">
                         <!-- 회원가입 버튼 -->
-                        <input class="submit" type="submit" value="회원가입">
-
-
-
+                        <input class=" submit " type="submit " value="회원가입 " onclick="handleSignUp() ">
                         <!-- </span> -->
                     </div>
-
                 </form>
             </div>
         </div>
-        <footer class="my-3 text-center text-small">
+        <footer class="my-3 text-center text-small ">
         </footer>
     </div>
-    <script>
-        // 입력 없으면 표시 
-        window.addEventListener('load', () => {
-            const forms = document.getElementsByClassName('validation-form');
-
-            Array.prototype.filter.call(forms, (form) => {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-
-        handleSignUp()
-        async function handleSignUp() {
-            const username = document.getElementById("username")
-            const password = document.getElementById("password")
-
-            const response = await fetch('http://127.0.0.1:8000/users/signup/', {
-                headers: {
-                    'content-type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    "username": username,
-                    "password": password
-                })
-            })
-        }
+    <script src="signup.js ">
     </script>
 </body>
 

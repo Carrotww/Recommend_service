@@ -29,7 +29,7 @@ class ArticleDetailView(APIView):
         serializer = PostListSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+    @login_required
     def put(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         if request.user == post.user:

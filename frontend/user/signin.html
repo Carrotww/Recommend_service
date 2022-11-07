@@ -233,26 +233,25 @@
             <!-- margin:10px 10px ; width: 90%; padding:10px 10px; float: center;  -->
             <!-- <div style="border: 3px solid rgb(0, 138, 162);"> -->
             <div class="login_id">
-                <h4>E-mail</h4>
-                <input type="email" name="" id="" placeholder="Email">
+                <h4>Id</h4>
+                <input id="username" placeholder="username">
             </div>
             <div class="login_pw">
                 <h4>Password</h4>
-                <input type="password" name="" id="" placeholder="Password">
-            </div>
+                <input type="password" id="password" placeholder="Password" 입 </div>
 
-            <div class="bottom">
-                <!-- 뒤로가기버튼` -->
-                <input onclick="history.back()" class="back" type="submit" value="◁">
-                <!-- 로그인 버튼 -->
-                <input class="submit" type="submit" value="로그인">
-
+                <div class="bottom">
+                    <!-- 뒤로가기버튼` -->
+                    <input onclick="history.back()" class="back" type="submit" value="◁">
+                    <!-- 로그인 버튼 -->
+                    <input class="submit" type="submit" value="로그인" onclick="handleSignIn()">
 
 
-                <!-- </span> -->
-            </div>
 
-            <!-- 
+                    <!-- </span> -->
+                </div>
+
+                <!-- 
             <div class="submit">
                 <input type="submit" value="submit">
             </div> -->
@@ -260,75 +259,18 @@
 
 
 
-            <!-- </div> -->
+                <!-- </div> -->
 
-            <br>
-            <div class="sub-content">
-                <div class="s-part">
-                    Don't have an account? <a class="to_sigup_btn" href="signup.html">Sign up</a>
+                <br>
+                <div class="sub-content">
+                    <div class="s-part">
+                        Don't have an account? <a class="to_sigup_btn" href="signup.html">Sign up</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        // 입력 없으면 표시 현재 구현 안됨
-        window.addEventListener('load', () => {
-            const forms = document.getElementsByClassName('validation-form');
-
-            Array.prototype.filter.call(forms, (form) => {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-
-        async function handleSignIn() {
-            const username = document.getElementById("username").value
-            const password = document.getElementById("password").value
-            const response = await fetch('http://127.0.0.1:8000/users/api/token/', {
-                headers: {
-                    'content-type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    "username": username,
-                    "password": password
-                })
-            })
-
-
-            const response_json = await response.json()
-
-            localStorage.setItem("access", response_json.access);
-            localStorage.setItem("refresh", response_json.refresh);
-
-            const base64Url = response_json.access.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-
-            }).join(''));
-
-            localStorage.setItem("payload", jsonPayload);
-        }
-        handleSignIn()
-
-
-        async function handleMock() {
-            const response = await fetch('http://127.0.0.1:8000/users/mock/', {
-                headers: {
-                    "Authorization": "Bearer " + localStorage.getItem("access")
-                },
-                method: 'GET',
-            })
-        }
-        handleMock()
-    </script>
+        <script src="signin.js">
+        </script>
 </body>
 
 </html>
