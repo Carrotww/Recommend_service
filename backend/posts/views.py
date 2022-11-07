@@ -6,17 +6,15 @@ from posts.models import Post
 from rest_framework.generics import get_object_or_404
 from django.contrib.auth.decorators import login_required
 class ArticlesView(APIView):
-
     def get(self, request):
         post = Post.objects.all()
         serializer = PostListSerializer(post, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-    @login_required
+    # @login_required
     def post(self, request):
-        print(request.user)
-        serializer = PostCreateSerializer(data=request.data)
+        serializer = PostListSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data)

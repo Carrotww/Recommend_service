@@ -6,5 +6,5 @@ urlpatterns = [
     path("articles/", include("posts.urls")),
     path("user/", include("users.urls")),
     path("", include("music.urls")),
-    # path("", include("posts.urls")),
+    path("post/", include("posts.urls")),
 ]
