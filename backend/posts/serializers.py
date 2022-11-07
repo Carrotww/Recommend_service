@@ -36,13 +36,13 @@ class PostSerializer(serializers.ModelSerializer):
 class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ("title","image","content")
+        fields = ("title","image","content","user")
 
 
 class PostListSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
     likes_count = serializers.SerializerMethodField()
-    comment_count = serializers.SerializerMethodField()
+    comments_count = serializers.SerializerMethodField()
 
     def get_user(self, obj):
         return obj.user.username
@@ -52,9 +52,8 @@ class PostListSerializer(serializers.ModelSerializer):
 
 
     def get_comments_count(self, obj):
-
         return obj.comment_post.count()
 
     class Meta:
         model = Post
-        fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count")
+        fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count",)

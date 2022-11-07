@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from posts.serializers import PostCreateSerializer, CommentSerializer, CommentCreateSerializer, PostListSerializer
 from posts.models import Post
 from rest_framework.generics import get_object_or_404
+from django.contrib.auth.decorators import login_required
 class ArticlesView(APIView):
 
     def get(self, request):
@@ -12,8 +13,9 @@ class ArticlesView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-
-    def post(self, request, format=None):
+    @login_required
+    def post(self, request):
+        print(request.user)
         serializer = PostCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
