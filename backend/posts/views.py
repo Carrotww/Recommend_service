@@ -13,7 +13,7 @@ class ArticlesView(APIView):
 
 
 
-    def post(self, request, format=None):
+    def post(self, request):
         serializer = PostCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)

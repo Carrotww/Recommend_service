@@ -9,13 +9,12 @@ from posts.serializers import PostListSerializer
 class UserProfileSerializer(serializers.ModelSerializer):
     followers = serializers.StringRelatedField(many=True)
     followings = serializers.StringRelatedField(many=True)
-
     post_user = PostListSerializer(many=True)
     post_likes = PostListSerializer(many=True)
 
     class Meta:
         model = User
-        fields = ("id","followings", "followers", "post_user", "post_likes")
+        fields = ("__all__")
 
 
 
