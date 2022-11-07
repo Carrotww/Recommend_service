@@ -6,7 +6,6 @@ from music.serializers import CategoryListSerializer, MusicStoreSerializer
 from music.models import Category, Music, Singer
 from music import last_fm_api
 import random
-from pprint import pprint
 
 
 
@@ -48,12 +47,13 @@ class Category_search_view(APIView):
     def post(self, request):
         search_list = request.data['category'].split(',') # 사용자가 선택한 tag
         search_result = last_fm_api.lookup_track_search(search_list) # tag 검색 결과
-        searched_list = [{"singer": x[0], "title": x[1], "url": x[2]} for x in search_result] # tag 검색 결과 항목별(곡명, 아티스트, 곡 상세페이지 url)로 분리
+        searched_list = [{"singer": x[0], "title": x[1], "url": x[2], "youtube_url": x[3]} for x in search_result] # tag 검색 결과 항목별(곡명, 아티스트, 곡 상세페이지 url)로 분리
 
         for se in search_result:
             singer = se[0]
             title = se[1]
             url = se[2]
+            youtube_url = se[3]
             try:
                 find_singer = Singer.objects.get(singer=singer)
             except:
@@ -65,7 +65,7 @@ class Category_search_view(APIView):
                     find_singer = Singer.objects.get(singer=singer) # bring singer id object
                     find_music = Music.objects.get(singer=find_singer, title=title)
                 except:
-                    new_music = Music.objects.create(singer=new_singer, title=title, music_url=url)
+                    new_music = Music.objects.create(singer=new_singer, title=title, music_url=url, youtube_url=youtube_url)
                     new_music.save()
             
         return Response(searched_list, status=status.HTTP_200_OK)

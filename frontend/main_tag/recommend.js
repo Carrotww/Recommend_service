@@ -28,13 +28,25 @@ window.onload = ()=>{
 async function recommend_info_fuc() {
     // 쿠키에서 정보 불러오기
     // 정보 추출, html 요소로 만들어주기
-    // console.log(response.json())
     var music_data = JSON.parse(localStorage.getItem('tempdata'));
 
     for (i=0; i < music_data.length; i++) {
-      console.log('가수 :', music_data[i]['singer'], '제목 :', music_data[i]['title'], 'url :', music_data[i]['url'])
+      // console.log('가수 :', music_data[i]['singer'], '제목 :', music_data[i]['title'], 'url :', music_data[i]['url'], 'youtube:', music_data[i]['youtube_url'])
     }
-    
+
+    var tags= document.getElementById("music");
+        for (i=0; i < music_data.length; i++){
+            console.log(music_data[i]['singer'])
+            const tag = document.createElement("iframe"); // 버튼 요소 생성
+            tag.setAttribute("width", "height", "src", "frameborder", "allow")
+            tag.src = "music_data[i]['youtube_url']"
+            tag.width = "500"
+            tag.height = "300"
+            tag.frameBorder = "0"
+            tag.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            tags.appendChild(tag) // all_tags 안에 tag 추가
+        }
+    // <iframe width="560" height="315" src="https://www.youtube.com/embed/iDjQSdN_ig8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     // const response = await fetch('http://127.0.0.1:8000/music_search/', {
     //     headers:{

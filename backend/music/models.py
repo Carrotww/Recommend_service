@@ -18,7 +18,8 @@ class Music(models.Model):
     likes = models.ManyToManyField(User, related_name='music_likes')
     category = models.ManyToManyField(Category, related_name='music_category')
     # singer = models.CharField(max_length=50)
-    music_url = models.CharField(max_length=200)
+    music_url = models.CharField(max_length=200, null=True)
+    youtube_url = models.CharField(max_length=200, null=True)
     singer = models.ForeignKey(Singer, on_delete=models.SET_NULL, related_name='music_singer', null=True)
 
     def __str__(self):
