@@ -51,6 +51,7 @@
     font-family: "Noto Sans KR", sans-serif;
   }
     body {
+      /* border: 10px solid; */
       min-height: 100vh;
 
       background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#000000));
@@ -62,6 +63,7 @@
 
     /* 회원가입창 흰색 툴 */
     .input-form {
+      /* border: 3px solid pink; */
       max-width: 680px;
       width: 80%;
       margin-top: 80px;
@@ -144,37 +146,21 @@
 
 <body>
   <div class="container">
-    <div class="input-form-backgroud row">
+    <div class="input-form-backgroud row" style="padding: 80px;">
       <div class="input-form col-md-12 mx-auto">
 
 
         <h2 class="mb-3">회원가입</h2>
         <form class="validation-form" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="username">아이디</label>
+          
+         
+          <div class="mb-3">
+            <label for="username">아이디</label>
               <input type="text" class="form-control" id="username" placeholder="" value="" required>
               <div class="invalid-feedback">
                 이름을 입력해주세요.
               </div>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="nickname">별명</label>
-              <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                별명을 입력해주세요.
-              </div>
-            </div>
           </div>
-
-          <div class="mb-3">
-            <label for="email">이메일</label>
-            <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
-            <div class="invalid-feedback">
-              이메일을 입력해주세요.
-            </div>
-          </div>
-
           <div class="mb-3">
             <label for="password">비밀번호</label>
             <input type="password" class="form-control" id="password" placeholder="****" required>
