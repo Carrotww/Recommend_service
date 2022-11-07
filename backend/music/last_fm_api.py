@@ -4,6 +4,7 @@ import time
 import random
 from pprint import pprint
 from itertools import combinations
+from bs4 import BeautifulSoup
 
 def lastfm_get(payload):
     API_KEY = '552c5795a19b23b431b21d1b47c080e6'
@@ -19,6 +20,26 @@ def lastfm_get(payload):
     response = requests.get(url, headers=headers, params=payload)
     return response
 
+def get_youtube_url(url):
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    default_url = 'https://www.youtube.com'
+    default_img = ''
+    response = requests.get(url, headers=headers)
+    
+    if response.status_code == 200:
+        html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
+        try:
+            result_url = soup.find('a', {'class': "image-overlay-playlink-link js-playlink"})['data-youtube-url']
+        except:
+            result_url = default_url
+        try:
+            result_image_url = soup.find('img', {'class': "video-preview"})['src']
+        except:
+            result_image_url = default_img
+        return result_url, result_image_url
+    else:
+        return default_url, default_img
 
 # def jprint(obj):
 #     # create a formatted string of the Python JSON object
@@ -68,9 +89,9 @@ def lookup_similar_tag(tag):
         'method': 'tag.getSimilar',
         'tag': tag
     })
-    print(response.json())
+    result = response.json()
 
-    return
+    return result
 
 def lookup_taginfo_tag(tag):
     lang = 'kr'
@@ -89,21 +110,41 @@ def lookup_track_search(tag:list):
     if len(tag) >= 2:
         tag_list = list(combinations(tag, 2))
         for i in tag_list:
+            temp = ' '.join(i)
             response = lastfm_get({
             'method': 'track.search',
-            'track': i})
-            recommend_all_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track']]
-            recommend_music_list.append(random.choice(recommend_all_list))
+            'track': temp})
+            music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']]
+            recommend_music_list.append(random.choice(music_list))
+        recommend_result_music = [(x[0], x[1], x[2]) for x in recommend_music_list]
 
-        return recommend_music_list
+        result_music = []
+        for x in recommend_result_music:
+            youtube_url, music_image = get_youtube_url(x[2])
+            try:
+                youtube_url = youtube_url.replace('watch?v=','embed/')
+            except:
+                pass
+            result_music.append((x[0], x[1], x[2], youtube_url, music_image))
+
+        return result_music
 
     elif len(tag) == 1:
+        result_music = []
         response = lastfm_get({
         'method': 'track.search',
         'track': tag})
-        search_result_list = [(x['artist'], x['name']) for x in response.json()['results']['trackmatches']['track'][0:5]]
+        music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']][0:5]
+        for x in music_list:
+            youtube_url, music_image = get_youtube_url(x[2])
+            try:
+                youtube_url = youtube_url.replace('watch?v=','embed/')
+            except:
+                pass
+            result_music.append((x[0], x[1], x[2], youtube_url, music_image))
+        
 
-        return search_result_list
+        return result_music
 
 def lookup_track_info(track_info:list):
     artist, track_name = track_info[0], track_info[1]
@@ -112,15 +153,14 @@ def lookup_track_info(track_info:list):
         'track': track_name,
         'artist': artist,
     })
+    result = response.json()['results']['trackmatches']['track'][0]
 
-    pprint(response.json()['results']['trackmatches']['track'][0])
-    
-    return
+    return result
 
 # print(lookup_artist_tags('버즈'))
 # print(lookup_all_tags())
 # print(lookup_similar_tag('spring'))
 # temp = ['rock', 'jazz']
-# print(lookup_track_search(['버즈', ' 트와이스', 'pop']))
+# print(lookup_track_search(['rock', ' jazz', ' kpop']))
 # print(lookup_track_search(['버즈']))
 # print(lookup_track_info(('Black Eyed Peas', 'Rock That Body')))
