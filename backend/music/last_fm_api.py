@@ -117,11 +117,6 @@ def lookup_track_search(tag:list):
             music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']]
             if not music_list:
                 continue
-            recommend_music_list.append(random.choice(music_list))
-        recommend_result_music = [(x[0], x[1], x[2]) for x in recommend_music_list]
-
-        result_music = []
-        for x in recommend_result_music:
             youtube_url, music_image = get_youtube_url(x[2])
             try:
                 youtube_url = youtube_url.replace('watch?v=','embed/')

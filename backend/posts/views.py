@@ -15,6 +15,7 @@ class ArticlesView(APIView):
     # @login_required
     def post(self, request):
         serializer = PostListSerializer(data=request.data)
+
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data)
