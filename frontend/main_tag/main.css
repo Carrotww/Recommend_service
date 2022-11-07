@@ -139,9 +139,10 @@ justify-content: center;
 }
 
 .submit_container{
-  /* border: 5px solid pink; */
-  margin: 10px 0 10px;
-  /* width: 50%; */
+  border: 5px solid pink;
+  margin: 0 30px 10px;
+  height: 80%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -179,7 +180,7 @@ button {
   max-width: 300px;
   color:white ;
   background-color: #080707;
-  font-size: 1.7vw;
+  font-size: 1.vw;
   border-radius:20px;
   transition: 0.3s;
   left:auto;  
@@ -205,12 +206,12 @@ input:checked + label{
   display: block;
   border: 1px solid blue;
   margin: 10px 10px;
-  padding: 10px 25px;
+  /* padding: 10px 25px; */
   max-width: 200px;
-  width:40%;
+  width:30%;
   /* max-height: 50px; */
   /* height:fit-content; */
-  height: 20%;
+  height: 25%;
   color:white ;
   background-color: #000000;
   font-size: 1.7vw;
