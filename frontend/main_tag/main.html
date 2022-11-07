@@ -1,8 +1,11 @@
 <head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
 </head>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -16,6 +19,9 @@
 
   <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
   <nav>
+    <span class="material-symbols-outlined" id="home">
+      home
+      </span>
     <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
     <div>
       <label for="sidebar" class="menu"></label>
@@ -55,7 +61,19 @@
       height: 10%; 
       width:100% ; 
     }
+
+    .material-symbols-outlined {
+      color:white;
+    font-variation-settings:
     
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  .material-symbols-outlined #home:hover{
+color : none;
+  }
   </style>
   <script src="main.js">
 
