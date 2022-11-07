@@ -36,14 +36,14 @@ def get_youtube_url(url):
     else:
         return default_url
 
-# def jprint(obj):
-#     # create a formatted string of the Python JSON object
-#     text = json.dumps(obj, sort_keys=True, indent=4)
-#     print(text)
+def jprint(obj):
+    # create a formatted string of the Python JSON object
+    text = json.dumps(obj, sort_keys=True, indent=4)
+    print(text)
 
-# test = {'method': 'chart.gettopartists'}
-# temp = lastfm_get(test)
-# jprint(temp.json()['artists']['@attr'])
+test = {'method': 'chart.gettopartists'}
+temp = lastfm_get(test)
+jprint(temp.json()['artists']['@attr'])
 
 
 def lookup_artist_tags(artist):
