@@ -111,10 +111,13 @@ def lookup_track_search(tag:list):
         tag_list = list(combinations(tag, 2))
         for i in tag_list:
             temp = ' '.join(i)
+            print(temp)
             response = lastfm_get({
             'method': 'track.search',
             'track': temp})
             music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']]
+            if not music_list:
+                continue
             recommend_music_list.append(random.choice(music_list))
         recommend_result_music = [(x[0], x[1], x[2]) for x in recommend_music_list]
 
