@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,112 +8,90 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
     <script>
-
-        // 입력 없으면 표시 현재 구현 안됨
-        window.addEventListener('load', () => {
-          const forms = document.getElementsByClassName('validation-form');
-      
-          Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener('submit', function (event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-      
-              form.classList.add('was-validated');
-            }, false);
-          });
-        }, false);
-      </script>
+    </script>
     <!-- <link rel="stylesheet" href="./login.css"> -->
     <style>
-        
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Noto Sans KR", sans-serif;
-  }
-  
-  a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-  }
-  
-  li {
-    list-style: none;
-  }
-/* d */
-  body {
-      min-height: 100vh;
-
-      background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#000000));
-      background: -webkit-linear-gradient(bottom left, #b6b6b6 0%, #000000 100%);
-      background: -moz-linear-gradient(bottom left, #b6b6b6 0%, rgb(0, 0, 0) 100%);
-      background: -o-linear-gradient(bottom left, #b6b6b6 0%, #000000 100%);
-      background: linear-gradient(to top right, #92b5db 0%, #020202 100%);
-    }
-
-    .input-form {
-      max-width: 680px;
-      width: 80%;
-      margin-top: 80px;
-      padding: 32px;
-      background: #fff;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-      -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
-      box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
-    }
-
-    /* 뒤로가기와 로그인 버튼이 담겨있는 틀 */
-  .bottom{
-    display: flex;
-    justify-content: center;
-    /* margin:0 80px ; */
-    display: center;
-    align-items: center;
-    width: 100%;
-    /* border: 3px solid purple; */
-    /* float: center; */
-
-  }
-
-  .back input {
-    margin: 0;
-    /* border: 3px solid red; */
-    width: 40px;
-    height: 40px;
-    border-radius: 30px;
-    background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
-    color: white;
-    font-size: 20px;
-    /* align-items: left; */
-    /* letter-spacing: 2px; */
-  }
-
-  .submit {
-    border: 3px solid rgb(0, 145, 99);
-    margin: 10px;
-
-    width: 50%;
-    height: 45px;
-    border: 0;
-    outline: none;
-    border-radius: 40px;
-    background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
-    color: white;
-    font-size: 1.2em;
-    letter-spacing: 2px;
-  }
-  /* df */
-
-
-
-  /* 원래 코드 */
-  /* body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        
+        a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        
+        li {
+            list-style: none;
+        }
+        /* d */
+        
+        body {
+            min-height: 100vh;
+            background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#000000));
+            background: -webkit-linear-gradient(bottom left, #b6b6b6 0%, #000000 100%);
+            background: -moz-linear-gradient(bottom left, #b6b6b6 0%, rgb(0, 0, 0) 100%);
+            background: -o-linear-gradient(bottom left, #b6b6b6 0%, #000000 100%);
+            background: linear-gradient(to top right, #92b5db 0%, #020202 100%);
+        }
+        
+        .input-form {
+            max-width: 680px;
+            width: 80%;
+            margin-top: 80px;
+            padding: 32px;
+            background: #fff;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            -webkit-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
+        }
+        /* 뒤로가기와 로그인 버튼이 담겨있는 틀 */
+        
+        .bottom {
+            display: flex;
+            justify-content: center;
+            /* margin:0 80px ; */
+            display: center;
+            align-items: center;
+            width: 100%;
+            /* border: 3px solid purple; */
+            /* float: center; */
+        }
+        
+        .back input {
+            margin: 0;
+            /* border: 3px solid red; */
+            width: 40px;
+            height: 40px;
+            border-radius: 30px;
+            background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
+            color: white;
+            font-size: 20px;
+            /* align-items: left; */
+            /* letter-spacing: 2px; */
+        }
+        
+        .submit {
+            border: 3px solid rgb(0, 145, 99);
+            margin: 10px;
+            width: 50%;
+            height: 45px;
+            border: 0;
+            outline: none;
+            border-radius: 40px;
+            background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
+            color: white;
+            font-size: 1.2em;
+            letter-spacing: 2px;
+        }
+        /* df */
+        /* 원래 코드 */
+        /* body {
       min-height: 100vh;
 
       background: -webkit-gradient(linear, left bottom, right top, from(#92b5db), to(#000000));
@@ -122,98 +100,90 @@
       background: -o-linear-gradient(bottom left, #b6b6b6 0%, #000000 100%);
       background: linear-gradient(to top right, #92b5db 0%, #020202 100%);
     } */
-
-/* 바탕화면 */
-  .wrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-
-/* 뒤로가기버튼 */
-    .back  {
-    /* position: absolute; */
-    margin: 50px 10px;
-    padding: 0;
-    /* border: 3px solid red; */
-    width: 40px;
-    height: 40px;
-    border: 100%;
-    /* outline: none; */
-    border-radius: 40px;
-    background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
-    color: white;
-    font-size: 20px;
-    align-items: left;
-    /* letter-spacing: 2px; */
-  }
-
-/* 로그인이 되는 흰색 화면 */
-  .login {
-    padding: 20px 10px 20px; 
-    width: 50%;
-    height: 600px;
-    background: rgb(255, 255, 255);
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  /* log-in글자 */
-  h2 {
-    
-    color: rgb(0, 0, 0);
-    font-size: 2em;
-  }
-  
-  
- 
-  /* 로그인 id인 이메일 입력 틀 */
-  .login_id {
-    /* border: 2px solid rgb(111, 111, 255); */
-    margin-top: 20px;
-    width: 80%;
-  }
-  
-  /* id(email) 입력 받는 부분 */
-  .login_id input {
-    width: 100%;
-    height: 50px;
-    border-radius: 30px;
-    margin-top: 10px;
-    padding: 0px 20px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
-  
-
-  /* 비밀번호 입력 틀 */
-  .login_pw {
-    /* border: 2px solid rgb(255, 68, 186); */
-    margin-top: 20px;
-    width: 80%;
-  }
-  
-
-  /* 비밀번호 입력 받는 부분 */
-  .login_pw input {
-    width: 100%;
-    height: 50px;
-    border-radius: 30px;
-    margin-top: 10px;
-    padding: 0px 20px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
-  
-  
-/*   
+        /* 바탕화면 */
+        
+        .wrap {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+        /* 뒤로가기버튼 */
+        
+        .back {
+            /* position: absolute; */
+            margin: 50px 10px;
+            padding: 0;
+            /* border: 3px solid red; */
+            width: 40px;
+            height: 40px;
+            border: 100%;
+            /* outline: none; */
+            border-radius: 40px;
+            background: linear-gradient(to left, rgb(3, 3, 3), rgb(101, 101, 101));
+            color: white;
+            font-size: 20px;
+            align-items: left;
+            /* letter-spacing: 2px; */
+        }
+        /* 로그인이 되는 흰색 화면 */
+        
+        .login {
+            padding: 20px 10px 20px;
+            width: 50%;
+            height: 600px;
+            background: rgb(255, 255, 255);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        /* log-in글자 */
+        
+        h2 {
+            color: rgb(0, 0, 0);
+            font-size: 2em;
+        }
+        /* 로그인 id인 이메일 입력 틀 */
+        
+        .login_id {
+            /* border: 2px solid rgb(111, 111, 255); */
+            margin-top: 20px;
+            width: 80%;
+        }
+        /* id(email) 입력 받는 부분 */
+        
+        .login_id input {
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            margin-top: 10px;
+            padding: 0px 20px;
+            border: 1px solid lightgray;
+            outline: none;
+        }
+        /* 비밀번호 입력 틀 */
+        
+        .login_pw {
+            /* border: 2px solid rgb(255, 68, 186); */
+            margin-top: 20px;
+            width: 80%;
+        }
+        /* 비밀번호 입력 받는 부분 */
+        
+        .login_pw input {
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            margin-top: 10px;
+            padding: 0px 20px;
+            border: 1px solid lightgray;
+            outline: none;
+        }
+        /*   
   .submit {
     margin-top: 50px;
     width: 80%;
@@ -230,40 +200,36 @@
     letter-spacing: 2px;
   }
  */
-
-
-
-
-.to_sigup_btn:hover {
-  color : red;
-}
-
-
-.back:hover{
-  background:rgba(126, 126, 126, 0.9);
-  cursor:pointer;
-  box-shadow: 0 2px 4px;
-}
-
-.submit:hover{
-  background:rgba(126, 126, 126, 0.9);
-  cursor:pointer;
-  box-shadow: 0 2px 4px;
-}
-
+        
+        .to_sigup_btn:hover {
+            color: red;
+        }
+        
+        .back:hover {
+            background: rgba(126, 126, 126, 0.9);
+            cursor: pointer;
+            box-shadow: 0 2px 4px;
+        }
+        
+        .submit:hover {
+            background: rgba(126, 126, 126, 0.9);
+            cursor: pointer;
+            box-shadow: 0 2px 4px;
+        }
     </style>
 </head>
+
 <body>
     <div class="wrap">
         <div class="login">
-            
-            <!-- 뒤로가기 버튼 -->
-             <!-- <button  class="back" onclick="history.back()" align-items: center;>◁</button> -->
 
-             <!-- <div class="back" style="border: 3px solid rgb(51, 255, 0); " > -->
-                <!-- <input type="submit" value="◁"> -->
+            <!-- 뒤로가기 버튼 -->
+            <!-- <button  class="back" onclick="history.back()" align-items: center;>◁</button> -->
+
+            <!-- <div class="back" style="border: 3px solid rgb(51, 255, 0); " > -->
+            <!-- <input type="submit" value="◁"> -->
             <!-- </div> -->
-            <h2 class = "login"   >Log-in</h2>
+            <h2 class="login">Log-in</h2>
             <!-- margin:10px 10px ; width: 90%; padding:10px 10px; float: center;  -->
             <!-- <div style="border: 3px solid rgb(0, 138, 162);"> -->
             <div class="login_id">
@@ -274,24 +240,24 @@
                 <h4>Password</h4>
                 <input type="password" name="" id="" placeholder="Password">
             </div>
-            
-            <div class="bottom" >
+
+            <div class="bottom">
                 <!-- 뒤로가기버튼` -->
-                <input  onclick="history.back()"  class="back" type="submit" value="◁">
+                <input onclick="history.back()" class="back" type="submit" value="◁">
                 <!-- 로그인 버튼 -->
-                <input   class="submit" type="submit" value="로그인">
+                <input class="submit" type="submit" value="로그인">
 
 
-                    
-                  <!-- </span> -->
-              </div>
 
-<!-- 
+                <!-- </span> -->
+            </div>
+
+            <!-- 
             <div class="submit">
                 <input type="submit" value="submit">
             </div> -->
 
-            
+
 
 
             <!-- </div> -->
@@ -299,10 +265,70 @@
             <br>
             <div class="sub-content">
                 <div class="s-part">
-                  Don't have an account?   <a class="to_sigup_btn" href="signup.html">Sign up</a>
+                    Don't have an account? <a class="to_sigup_btn" href="signup.html">Sign up</a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // 입력 없으면 표시 현재 구현 안됨
+        window.addEventListener('load', () => {
+            const forms = document.getElementsByClassName('validation-form');
+
+            Array.prototype.filter.call(forms, (form) => {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+
+        async function handleSignIn() {
+            const username = document.getElementById("username").value
+            const password = document.getElementById("password").value
+            const response = await fetch('http://127.0.0.1:8000/users/api/token/', {
+                headers: {
+                    'content-type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    "username": username,
+                    "password": password
+                })
+            })
+
+
+            const response_json = await response.json()
+
+            localStorage.setItem("access", response_json.access);
+            localStorage.setItem("refresh", response_json.refresh);
+
+            const base64Url = response_json.access.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+
+            }).join(''));
+
+            localStorage.setItem("payload", jsonPayload);
+        }
+        handleSignIn()
+
+
+        async function handleMock() {
+            const response = await fetch('http://127.0.0.1:8000/users/mock/', {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("access")
+                },
+                method: 'GET',
+            })
+        }
+        handleMock()
+    </script>
 </body>
+
 </html>

@@ -106,6 +106,7 @@ def lookup_taginfo_tag(tag):
 def lookup_track_search(tag:list):
     # tag가 5개 들어옴
     recommend_music_list = []
+    default_img = 'https://www.shutterstock.com/image-vector/picture-icon-image-photo-600w-1672289161.jpg'
 
     if len(tag) >= 2:
         tag_list = list(combinations(tag, 2))
@@ -115,9 +116,19 @@ def lookup_track_search(tag:list):
             'method': 'track.search',
             'track': temp})
             music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']]
-            if not music_list:
+            if music_list:
+                recommend_music_list.append(random.choice(music_list))
+        recommend_result_music = [(x[0], x[1], x[2]) for x in recommend_music_list]
+
+        result_music = []
+        for x in recommend_result_music:
+            try:
+                youtube_url, music_image = get_youtube_url(x[2])
+                if music_image == '':
+                        music_image = default_img
+            except:
+                result_music.append(x[0], x[1], x[2], 'https://youtube.com', default_img)
                 continue
-            youtube_url, music_image = get_youtube_url(x[2])
             try:
                 youtube_url = youtube_url.replace('watch?v=','embed/')
             except:
@@ -132,16 +143,22 @@ def lookup_track_search(tag:list):
         'method': 'track.search',
         'track': tag})
         music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']][0:5]
-        for x in music_list:
-            youtube_url, music_image = get_youtube_url(x[2])
-            try:
-                youtube_url = youtube_url.replace('watch?v=','embed/')
-            except:
-                pass
-            result_music.append((x[0], x[1], x[2], youtube_url, music_image))
-        
+        if music_list:
+            for x in music_list:
+                try:
+                    youtube_url, music_image = get_youtube_url(x[2])
+                    if music_image == '':
+                        music_image = default_img
+                except:
+                    result_music.append(x[0], x[1], x[2], 'https://youtube.com', default_img)
+                    continue
+                try:
+                    youtube_url = youtube_url.replace('watch?v=','embed/')
+                except:
+                    pass
+                result_music.append((x[0], x[1], x[2], youtube_url, music_image))
 
-        return result_music
+            return result_music
 
 def lookup_track_info(track_info:list):
     artist, track_name = track_info[0], track_info[1]

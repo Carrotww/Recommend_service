@@ -33,8 +33,7 @@ class ArticleDetailView(APIView):
     def put(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         if request.user == post.user:
-            serializer = PostListSerializer(post)
-            print('#######', serializer)
+            serializer = PostListSerializer(post, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)

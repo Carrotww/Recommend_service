@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=d, initial-scale=1.0">
+    <link href="http://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="http://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="http://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <title>profile pages</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-image: url('https://img.freepik.com/free-vector/gradient-pastel-sky-background_23-2148908629.jpg?w=2000');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
+    }
+    
+    .profile-card {
+        width: 700px;
+        margin: auto;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        background-color: white;
+        border-radius: 10px;
+        opacity: 0.98;
+        font-weight: 800;
+        box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.5);
+        position: relative;
+    }
+    
+    .image-container {
+        position: relative;
+    }
+    
+    .image-container img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-top: 15px;
+        margin-left: 250px;
+    }
+    
+    .title {
+        position: absolute;
+        left: 200px;
+        top: 170px;
+        font-size: 17px;
+        font-weight: 700;
+        color: #292525;
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+    
+    .main-container {
+        padding: 32px 20px 20px 20px;
+    }
+    
+    .info {
+        color: black;
+        margin-right: 16px;
+        padding: 14px;
+    }
+    
+    .skills {
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 80px;
+    }
+    
+    .btn {
+        padding: 10px;
+        margin-top: 9px;
+        margin-bottom: 8px;
+        background-color: #164a40;
+        color: white;
+        width: 120px;
+        outline: none;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-left: 12px;
+    }
+    
+    .btn_submit {
+        padding: 10px;
+        margin-top: 9px;
+        margin-bottom: 8px;
+        background-color: #164a40;
+        color: white;
+        width: 120px;
+        outline: none;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-left: 12px;
+    }
+    
+    .btn_edit {
+        padding: 10px;
+        margin-top: 9px;
+        margin-bottom: 8px;
+        background-color: #164a40;
+        color: white;
+        width: 120px;
+        outline: none;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-left: 12px;
+    }
+    
+    .btn:hover {
+        background-color: #39524d;
+    }
+    
+    .about {
+        border: 2px solid gray;
+        border-radius: 7px;
+        margin-left: 2px;
+        font-family: 'Nono Sans Korea';
+    }
+    
+    .about img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50;
+        margin-left: 12px;
+        margin-top: 4px;
+    }
+    
+    .about p {
+        padding: 12px;
+        margin-top: 0px;
+        margin-left: 13px;
+        font-family: 'Nono Sans Korea';
+        font-size: 17px;
+    }
+    
+    .about h3 {
+        margin-left: 14px;
+    }
+    
+    .follow p {
+        color: black;
+        font-size: 18px;
+    }
+    
+    .socila-media {
+        margin-top: 12px;
+        margin-left: 12px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .fa-facebook {
+        background: #034ce6;
+        color: white;
+        border-radius: 50%;
+        padding: 12px;
+    }
+    
+    .fa-twitter {
+        background: #0878ce;
+        color: white;
+        border-radius: 50%;
+        padding: 12px;
+    }
+    
+    .fa-instagram {
+        background: #d0092f;
+        color: white;
+        border-radius: 50%;
+        padding: 12px;
+    }
+    
+    .fa-youtube {
+        background: #d20606;
+        color: white;
+        border-radius: 50%;
+        padding: 12px;
+    }
+</style>
+
+<body>
+    <div class="profile-card ">
+        <div class="image-container">
+            <img src="https://www.snsboom.co.kr/common/img/default_profile.png" alt=" ">
+            <div class="title ">
+                <h2>username</h2>
+            </div>
+        </div>
+        <div class="main-container">
+            <br>
+
+            <p>Profile Edit</p>
+            <hr><br><br>
+
+            <p>state message</p>
+
+            <div class="skills">
+                <form id="state_message" action="" method="post">
+                    <input type="text" class="bar" style="border:none; outline: none; width:100%;" placeholder="상태메시지를 적어주세요">
+
+                </form>
+            </div>
+            <button class="btn_submit">작성</button>
+
+            <p>Following</p>
+            <div class="skills">
+                <div class="bar" style="width:70%">팔로잉한 사람 목록 추가 또는 삭제</div>
+            </div>
+            <p>Follower</p>
+            <div class="skills">
+                <div class="bar" style="width:70%">팔로우한 사람 목록 추가 또는 삭제</div>
+            </div><br>
+            <div class="about">
+                <form class="about_songs" style="float:left">
+                    <img src="" alt="">
+                    <h3>music title_1</h3>
+                </form>
+                <form class="about_songs" style="float:left">
+                    <img src="" alt="">
+                    <h3>music title_2</h3>
+                </form>
+                <form class="about_songs">
+                    <img src="" alt="">
+                    <h3>music title_3</h3>
+                </form>
+                <form class="about_songs" style="float:left">
+                    <img src="" alt="">
+                    <h3>music title_4</h3>
+                </form>
+                <form class="about_songs" style="float:left">
+                    <img src="" alt="">
+                    <h3>music title_5</h3>
+                </form>
+                <form class="about_songs">
+                    <img src="" alt="">
+                    <h3>music title_6</h3>
+                </form>
+            </div>
+            <br><button class="btn_edit" onclick="location.href='profile.html'">Profile Home</button>
+
+        </div>
+    </div>
+    </div>
+    <script>
+        async function ProfileEdit() {
+            const username = document.getElementById("username").value
+            const image = document.getElementById("image").value
+            const post_likes = document.getElementById("post_likes").value
+
+            const response = await fetch('http://127.0.0.1:8000/users/${username}/profileedit/', {
+                headers: {
+                    'content-type': 'application/json',
+                },
+                method: 'PUT',
+                body: JSON.stringify({
+                    "username": username,
+                    "image": image,
+                    "post_likes": post_likes,
+                })
+            })
+        }
+    </script>
+</body>
+
+</html>

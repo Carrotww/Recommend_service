@@ -71,25 +71,25 @@ class Category_search_view(APIView):
                 new_music.save()
             
         return Response(searched_list, status=status.HTTP_200_OK)
-            try:
-                find_singer = Singer.objects.get(singer=singer)
-            except:
-                find_singer = None
-            if find_singer is None:
-                new_singer = Singer.objects.create(singer=singer)
-                new_singer.save()
-                try:
-                    find_singer = Singer.objects.get(singer=singer) # bring singer id object
-                    find_music = Music.objects.get(singer=find_singer, title=title)
-                except:
-                    new_music = Music.objects.create(singer=new_singer, title=title, music_url=url, youtube_url=youtube_url)
-                    new_music.save()
+        #     try:
+        #         find_singer = Singer.objects.get(singer=singer)
+        #     except:
+        #         find_singer = None
+        #     if find_singer is None:
+        #         new_singer = Singer.objects.create(singer=singer)
+        #         new_singer.save()
+        #         try:
+        #             find_singer = Singer.objects.get(singer=singer) # bring singer id object
+        #             find_music = Music.objects.get(singer=find_singer, title=title)
+        #         except:
+        #             new_music = Music.objects.create(singer=new_singer, title=title, music_url=url, youtube_url=youtube_url)
+        #             new_music.save()
             
-        return Response(searched_list, status=status.HTTP_200_OK)
+        # return Response(searched_list, status=status.HTTP_200_OK)
 
-        # serializer = MusicStoreSerializer(Music, data=search_list)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(searched_list, status=status.HTTP_200_OK)
-        # else:
-        #     return Response(status=status.HTTP_400_BAD_REQUEST)
+        # # serializer = MusicStoreSerializer(Music, data=search_list)
+        # # if serializer.is_valid():
+        # #     serializer.save()
+        # #     return Response(searched_list, status=status.HTTP_200_OK)
+        # # else:
+        # #     return Response(status=status.HTTP_400_BAD_REQUEST)
