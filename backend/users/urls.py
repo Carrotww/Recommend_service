@@ -11,5 +11,6 @@ urlpatterns = [
     path('api/token/', views.CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('follow/<int:user_id>/', views.FollowView.as_view(), name='follow_view'),
-    path('<str:username>/', views.ProfileView.as_view(), name='Profile_view'),
+    path('<str:username>/', views.ProfileView.as_view(), name='profile_view'),
+    path('<str:username>/profileedit', views.ProfileEditView.as_view(), name='profile_edit')
 ]

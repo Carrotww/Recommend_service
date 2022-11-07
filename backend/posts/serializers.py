@@ -50,10 +50,10 @@ class PostListSerializer(serializers.ModelSerializer):
     def get_likes_count(self, obj):
         return obj.likes.count()
 
-
     def get_comments_count(self, obj):
         return obj.comment_post.count()
 
     class Meta:
         model = Post
         fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count",)
+

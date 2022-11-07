@@ -11,9 +11,11 @@ class ArticlesView(APIView):
         serializer = PostListSerializer(post, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
     # @login_required
     def post(self, request):
         serializer = PostListSerializer(data=request.data)
+
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data)
