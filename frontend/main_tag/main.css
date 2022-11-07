@@ -203,14 +203,14 @@ input:checked + label{
 
 .mylabel{
   display: block;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   margin: 10px 10px;
   padding: 10px 25px;
   max-width: 200px;
   width:40%;
   /* max-height: 50px; */
-  height:fit-content;
-  height: 30%;
+  /* height:fit-content; */
+  height: 20%;
   color:white ;
   background-color: #000000;
   font-size: 1.7vw;

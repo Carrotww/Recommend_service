@@ -24,20 +24,20 @@
 
   <style>
     .checkbox_container {
-      /* height: 800px; */
+      border: 3px solid orange;
+      height: 100%;
       width: 100%;
     }
 
 
     /* 스크롤바 숨기기 */
     .checkbox_container::-webkit-scrollbar {
-      height: 100%;
-      width: 100%;
+     
       display: none;
     }
 
     .submit_btn_container{
-      /* border: 4px solid red; */
+      border: 4px solid red;
       justify-content: center;
       margin: 50px 240px;
       text-align: center;
@@ -95,30 +95,30 @@
 
   <!-- 태그 -->
   <div class="btn_container" style=" border-radius: 20px; ">
-    <div style="overflow:auto; width:100% ; height:100%;">
+    <div style="overflow:auto; width:100% ; height:80%;">
       <div class="checkbox_container" id="all_tags">
 
         <!-- <div id='result'></div> -->
 
       </div>
       <!-- 페이지넘기는용  -->
-      <div class="submit_btn_container"  >
-        <div class="ok ">
-          <button onclick="location.href='recommend.html'" class="submit_container">확인용 버튼</button>
-        
-        
-        </div>
-
-
-        <!-- 자바스크립트에서 진짜로 쓰는 버튼 -->
-        <div class="ok" style="height:10%">
-          <button class="submit_container"  onclick='AllTagPost()'>확인</button>
-        </div>
-
-      </div>
+      
     </div>
 
+    <div class="submit_btn_container"  >
+      <div class="ok ">
+        <button onclick="location.href='recommend.html'" class="submit_container">확인용 버튼</button>
+      
+      
+      </div>
 
+
+      <!-- 자바스크립트에서 진짜로 쓰는 버튼 -->
+      <div class="ok" >
+        <button class="submit_container"  onclick='AllTagPost()'>확인</button>
+      </div>
+
+    </div>
 
 
 
