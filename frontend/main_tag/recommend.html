@@ -167,7 +167,7 @@
             display: none;
         }
 
-        .music {
+        .all_music {
             background-color: #292929;
         }
 
@@ -175,11 +175,10 @@
             background-color: #ffffff;
             font-size: 26px;
             font-weight: 600;
-            
         }
 
         .music_singer {
-            background-color: #5caa7f;
+            background-color: #ffffff;
             font-size: 22px;
         }
 
@@ -235,7 +234,7 @@
     <!-- 검색창  -->
     <div class="recommend_to_user">
         <form class="box">
-            <h1>{username}님이 좋아하실만한 곡은...</h1>
+            <h1><span id="username"></span>님이 좋아하실만한 곡은...</h1>
 
     </div>
 
@@ -244,7 +243,9 @@
     <div class="recommend_container" style="overflow:auto;width: 95%; max-height: 700px; height: 70%;" >
        
         <div class="music" id="all_music">
-            <div class="music" id="music"></div>
+            <div class="music" id="music0"></div>
+            <div class="music" id="music1"></div>
+            <div class="music" id="music2"></div>
         </div>
     
         <!-- <div class="flex-container" id="music"></div>  -->
