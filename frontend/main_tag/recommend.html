@@ -366,6 +366,62 @@
 
         }
 
+
+        .all_music {
+            background-color: #865555;
+            /* display : inline-block; */
+        }
+
+        #music0{
+            background-color: #ffffff;
+            border: 20px;
+            margin:10px;
+            padding: 15px 20px;
+            border-radius: 6px;
+            width: 65%;
+            /* width: 500px; */
+        }
+        #music1{
+            background-color: #ffffff;
+            border: 20px;
+            margin:10px;
+            padding: 15px 20px;
+            border-radius: 6px;
+            width: 65%;
+            /* width: 500px; */
+        }
+        #music2{
+            background-color: #ffffff;
+            border: 20px;
+            margin:10px;
+            padding: 15px 20px;
+            border-radius: 6px;
+            width: 65%;
+            /* width: 500px; */
+        }
+
+        .music_title {
+            /* background-color: #ffffff; */
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .music_singer {
+            /* background-color: #ffffff; */
+            font-size: 20px;
+            color: #acacac;
+        }
+
+        .music_url {
+            background-color: #7b83ca;
+        }
+        
+        .music_info {
+            background-color: #777777;
+            font-size: 10px;
+        }
+
+
         .music_detail {
             color: rgb(124, 28, 84);
             font-size: 20px;
@@ -437,10 +493,36 @@
                     src="https://velog.velcdn.com/images/taeeuno_o/post/95eb8dbf-7bed-4503-b7ab-961a7713716f/image.png">
             </a>
 
+
             <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
 
         </nav>
     </div>
+
+
+    <script src="recommend.js">
+        const heartSvg = document.querySelector('.feed-icon.like-default');
+        const heartPath = document.querySelector('.feed-icon.like-default path');
+
+        heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
+        function fillHeartRed(heartSvg, heartPath){
+            if(heartSvg.classList.contains("like-default")){
+                heartSvg.classList.remove("like-default");
+                heartSvg.classList.add("like-fill");
+                heartPath.setAttribute('d','M34.6 3....')
+            }
+            else{
+                heartSvg.classList.remove("like-fill");
+                heartSvg.classList.add("like-default");
+                heartPath.setAttribute('d','M34.6 6....')
+            }
+        }
+
+       
+
+
+  
+
 
 
 </header>
@@ -450,8 +532,11 @@
 
     <!-- 검색창  -->
     <div class="recommend_to_user">
-        <form class="box" style="z-index:-1;">
-            <h1>{username}님이 좋아하실만한 곡은...</h1>
+
+        <form class="box">
+            <h1><span id="username"></span>님이 좋아하실만한 곡은...</h1>
+
+
 
 
     </div>
@@ -461,7 +546,13 @@
 
     <!-- 흰색 배경창 -->
     <!-- 컨테이너에 스크롤바 -->
+
     <div class="recommend_container" style="overflow:auto;width: 90%; max-height: 500px; height: 90%;">
+           <div class="all_music" id="all_music">
+            <div class="music" id="music0"></div>
+            <div class="music" id="music1"></div>
+            <div class="music" id="music2"></div>
+        </div>
 
         <div class="flex-container center">
             <div class="flex-item" id="btn-modal" style="margin: 5px 5px; ">
@@ -481,6 +572,7 @@
         </div>
 
         
+
 
 
 
@@ -545,6 +637,9 @@
             </div>
 
 </body>
+
+<script src="recommend.js"></script>
+
 <script>
     // 모달창
     const loremIpsum = document.getElementById("lorem-ipsum")
@@ -589,5 +684,6 @@
     })
 </script>
 <script src="script.js"></script>
+
 
 </html>

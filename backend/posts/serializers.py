@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from posts.models import Post, Comment
 from users.models import User
 
@@ -23,7 +22,7 @@ class CommentCreateSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
-    comments = CommentSerializer(many=True)
+    comment_post = CommentSerializer(many=True)
     likes = serializers.StringRelatedField(many=True)
 
     def get_user(self, obj):
@@ -37,23 +36,24 @@ class PostSerializer(serializers.ModelSerializer):
 class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ("title","image","content")
+        fields = ("title","image","content","user")
 
 
 class PostListSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
     likes_count = serializers.SerializerMethodField()
-    comment_count = serializers.SerializerMethodField()
+    comments_count = serializers.SerializerMethodField()
 
     def get_user(self, obj):
         return obj.user.username
 
     def get_likes_count(self, obj):
         return obj.likes.count()
-    
-    def get_comment_count(self, obj):
+
+    def get_comments_count(self, obj):
         return obj.comment_post.count()
 
     class Meta:
         model = Post
-        fields = '__all__'
+        fields = ("pk", "title", "image", "updated_at", "user", "likes_count", "comments_count",)
+
