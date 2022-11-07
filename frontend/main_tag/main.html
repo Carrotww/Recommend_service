@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 
-  
+
 <!-- 사이드바 만들기 -->
 <!-- <input type="checkbox" id="sidebar"> -->
 
@@ -12,42 +12,65 @@
   <!-- 헤더 네비게이션 -->
 
 
-    <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
-    <nav>
-      <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
-      <div>
-        <label for="sidebar" class="menu"></label>
-      </div>
-          
-    </nav>
-    
+  <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
+  <nav>
+    <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
+    <div>
+      <label for="sidebar" class="menu"></label>
+    </div>
+
+  </nav>
 
 
-    <script src="main.js">
+  <style>
+    .checkbox_container {
+      /* height: 800px; */
+      width: 100%;
+    }
 
-      window.onload = function(){
-        function searchToggle(obj, evt){
+
+    /* 스크롤바 숨기기 */
+    .checkbox_container::-webkit-scrollbar {
+      height: 100%;
+      width: 100%;
+      display: none;
+    }
+
+    .submit_btn_container{
+      /* border: 4px solid red; */
+      justify-content: center;
+      margin: 50px 240px;
+      text-align: center;
+      margin: auto;
+      display: flex;
+      height: 10%; 
+      width:100% ; 
+    }
+  </style>
+  <script src="main.js">
+
+    window.onload = function () {
+      function searchToggle(obj, evt) {
         var container = $(obj).closest('.search-wrapper');
-          if(!container.hasClass('active')){
-            container.addClass('active');
-            evt.preventDefault();
-          }
-          else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0)
-          {
-            container.removeClass('active');
-             // clear input
-             container.find('.search-input').val('');
-          }
+        if (!container.hasClass('active')) {
+          container.addClass('active');
+          evt.preventDefault();
+        }
+        else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+          container.removeClass('active');
+          // clear input
+          container.find('.search-input').val('');
+        }
       }
 
-        let c1 = document.querySelectorAll('label');
-        c1.addEventListener('click',function(){
-          c1.classList.toggle('flipped')
-          console.log('ㅠㅠ')
-        })
-      }
-        
-    </script>
+      let c1 = document.querySelectorAll('label');
+      c1.addEventListener('click', function () {
+        c1.classList.toggle('flipped')
+        console.log('ㅠㅠ')
+      })
+    }
+
+  </script>
 </header>
 
 <!-- 본문영역 -->
@@ -59,68 +82,50 @@
 <body>
 
 
-    
-        <!-- 검색창  -->
-         <div class = "test_container">
-          <form class="box">
-            <h1>What do you want to listen? </h1>
-            <input type="text" value="Type.."   onclick="this.value='';" >
-            <input type="submit" href="search.html"  value="Search">
-          </form>
-         </div>
+
+  <!-- 검색창  -->
+  <div class="test_container">
+    <form class="box">
+      <h1>What do you want to listen? </h1>
+      <input type="text" value="Type.." onclick="this.value='';">
+      <input type="submit" href="search.html" value="Search">
+    </form>
+  </div>
 
 
-         <!-- 태그 -->
-        <div class="btn_container">
-          
-          <div class="checkbox_container" id="all_tags"></div>
+  <!-- 태그 -->
+  <div class="btn_container" style=" border-radius: 20px; ">
+    <div style="overflow:auto; width:100% ; height:100%;">
+      <div class="checkbox_container" id="all_tags">
 
-<<<<<<< HEAD
-          <div class="ok " >
-            <button  onclick="location.href='recommend.html'" class="submit_container" >확인</button>
-          </div>
+        <!-- <div id='result'></div> -->
 
-          
-          
-        
-
-
-          <!-- 장르 선택 -->
-          <!-- <button onclick="onclick_genre('KPOP')">KPOP</button>
-          <button onclick="onclick_genre('OST')">OST</button>
-          <button onclick="onclick_genre('ROCK')">ROCK</button>
-          <button onclick="onclick_genre('POP')">POP</button>
-          <button onclick="onclick_genre('HIPHOP')">HIP</button>
-          <button onclick="onclick_genre('EDM')">EDM</button>
-          <button onclick="onclick_genre('JAZZ')">JAZZ</button>
-          <button onclick="onclick_genre('CLASSIC')">CLASSIC</button>
-          <button onclick="onclick_genre('JPOP')">JPOP</button>
-          <button onclick="onclick_genre('ANI')">ANI</button>
-          <button onclick="onclick_genre('SOLO')">SOLO</button>
-          <button onclick="onclick_genre('GROUP')">GROUP</button> -->
-
-
-          <!-- <button onclick="location.href='main_hippop.html'">힙합</button>
-          <button onclick="location.href='main_singer.html'">POP</button>
-          <button onclick="location.href='main_singer.html'">OST</button>
-          <button onclick="location.href='main_singer.html'">트롯</button>
-          <button onclick="location.href='main_singer.html'">EDM</button>
-          <button onclick="location.href='main_singer.html'">JAZZ</button>
-          <button onclick="location.href='main_singer.html'">CLASSIC</button>
-          <button onclick="location.href='main_singer.html'">JPOP</button> -->
-          
-=======
-          <div class="">
-            <button class="submit_container" onclick='AllTagPost()'>확인</button>
-          </div>
-          <div id='result'></div>
+      </div>
+      <!-- 페이지넘기는용  -->
+      <div class="submit_btn_container"  >
+        <div class="ok ">
+          <button onclick="location.href='recommend.html'" class="submit_container">확인용 버튼</button>
         
         
->>>>>>> 29ec0315f5410381d7ac99a811019724d8558d9d
+        </div>
 
-        </div> 
-        <!-- 사이드바 -->
-        <!-- <div class="sidebar_content">
+
+        <!-- 자바스크립트에서 진짜로 쓰는 버튼 -->
+        <div class="ok" style="height:10%">
+          <button class="submit_container"  onclick='AllTagPost()'>확인</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+  </div>
+  <!-- 사이드바 -->
+  <!-- <div class="sidebar_content">
           <ul>
             <li><a>로그인</a></li>
             <li><a>마이페이지</a></li>
@@ -129,11 +134,10 @@
           </ul>
           <label for="sidebar"></label>
         </div> -->
-        <!-- 사이드바 외 영역 -->
-        <!-- <label for="sidebar" class="background"></label> -->
+  <!-- 사이드바 외 영역 -->
+  <!-- <label for="sidebar" class="background"></label> -->
 </body>
 
-           <script src="script.js"></script>
+<script src="script.js"></script>
 
 </html
-
