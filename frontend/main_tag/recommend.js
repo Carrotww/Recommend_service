@@ -4,6 +4,7 @@ window.onload = ()=>{
     recommend_info_fuc()
 }
 
+
 // 추천곡들의 정보를 쿠카에서 불러오는 함수
 async function recommend_info_fuc() {
     // 쿠키에서 정보 불러오기
