@@ -111,7 +111,6 @@ def lookup_track_search(tag:list):
         tag_list = list(combinations(tag, 2))
         for i in tag_list:
             temp = ' '.join(i)
-            print(temp)
             response = lastfm_get({
             'method': 'track.search',
             'track': temp})

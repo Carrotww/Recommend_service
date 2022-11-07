@@ -72,13 +72,6 @@ class Category_search_view(APIView):
             
         return Response(searched_list, status=status.HTTP_200_OK)
 
-        # serializer = MusicStoreSerializer(Music, data=search_list)
-        # if serializer.is_valid():
-        #     serializer.save()
-        #     return Response(searched_list, status=status.HTTP_200_OK)
-        # else:
-        #     return Response(status=status.HTTP_400_BAD_REQUEST)
-
 class Music_result_view(APIView):
     def get():
         
