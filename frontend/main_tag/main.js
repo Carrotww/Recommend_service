@@ -88,11 +88,9 @@ async function AllTagPost() {
     }).then((response) => { return response.json() })
 
     // local storage 방식으로 데이터 저장 후 다른 페이지로 넘겨줄
-    // localStorage.setItem('tempdata', JSON.stringify(music_data))
-    // var temp = JSON.parse(localStorage.getItem('tempdata'));
+    localStorage.setItem('tempdata', JSON.stringify(music_data))
+    var temp = JSON.parse(localStorage.getItem('tempdata'));
     
-    // 추천 결과 데이터들을 쿠키에 저장 후 다른 페이지로 넘겨줄 예정
-    document.cookie = "recommend="+JSON.stringify(music_data); // 자바스크립트의 값을 JSON 문자열로 변환 후 쿠카 저장
     // goto_reco_page() 다른 페이지로 이동
     move_page('recommend.html')
 

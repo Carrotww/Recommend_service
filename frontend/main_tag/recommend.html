@@ -166,6 +166,22 @@
         .recommend_container::-webkit-scrollbar{
             display: none;
         }
+
+        .music {
+            background-color: #292929;
+        }
+
+        .music_title {
+            background-color: #292929;
+        }
+
+        .music_singer {
+            background-color: #5caa7f;
+        }
+
+        .music_url {
+            background-color: #7b83ca;
+        }
         
 
     </style>
@@ -184,21 +200,21 @@
 
     <script>
         const heartSvg = document.querySelector('.feed-icon.like-default');
-const heartPath = document.querySelector('.feed-icon.like-default path');
+        const heartPath = document.querySelector('.feed-icon.like-default path');
 
-heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
-function fillHeartRed(heartSvg, heartPath){
-	if(heartSvg.classList.contains("like-default")){
-		heartSvg.classList.remove("like-default");
-		heartSvg.classList.add("like-fill");
-		heartPath.setAttribute('d','M34.6 3....')
-	}
-	else{
-	 	heartSvg.classList.remove("like-fill");
-	 	heartSvg.classList.add("like-default");
-	 	heartPath.setAttribute('d','M34.6 6....')
-	 }
-}
+        heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
+        function fillHeartRed(heartSvg, heartPath){
+            if(heartSvg.classList.contains("like-default")){
+                heartSvg.classList.remove("like-default");
+                heartSvg.classList.add("like-fill");
+                heartPath.setAttribute('d','M34.6 3....')
+            }
+            else{
+                heartSvg.classList.remove("like-fill");
+                heartSvg.classList.add("like-default");
+                heartPath.setAttribute('d','M34.6 6....')
+            }
+        }
 
 
 
@@ -218,89 +234,10 @@ function fillHeartRed(heartSvg, heartPath){
     <!-- 흰색 배경창 -->
     <!-- 컨테이너에 스크롤바 -->
     <div class="recommend_container" style="overflow:auto;width: 95%; max-height: 700px; height: 70%;" >
-        <div class="flex-container center">
-            <div class="flex-item" ><img src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg"></div>
-            <div class="flex-item" >가나다라마바사아자카차타파하</div>
-            <div class="flex-item">가수 명</div>
-            <div class="flex-item_like"><img  src="https://velog.velcdn.com/images/taeeuno_o/post/8dcb42de-99c9-4280-80fd-be1ecc2ce75e/image.png"  style="width: 50%;"/></div>
-        </div>
-
-        <div class="flex-container ">
-            <div class="flex-item color-green font1"><img src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg"></div>
-            <div class="flex-item" >가나다라마바사아자카차타파하</div>
-            <div class="flex-item">가수 명</div>
-            <div class="flex-item"><img  src="https://velog.velcdn.com/images/taeeuno_o/post/8dcb42de-99c9-4280-80fd-be1ecc2ce75e/image.png"  style="width: 50%;"/></div>
-        </div>
+       
+        <div class="music" id="music"></div>
+        <div class="flex-container" id="music"></div> 
         
-        <div class="flex-container " id="music">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4"></div>
-        </div>
-        
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item color-green font1">앨범표지</div>
-            <div class="flex-item color-green font2">곡 명</div>
-            <div class="flex-item color-green font3">가수 명</div>
-            <div class="flex-item color-green font4">좋아요 버튼</div>
-        </div>
-
-        
-
-        
-
-
-
     </div>
 
 
