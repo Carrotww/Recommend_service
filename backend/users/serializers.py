@@ -4,20 +4,15 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from users.models import User
 from posts.serializers import PostListSerializer
 
-
-
 class UserProfileSerializer(serializers.ModelSerializer):
     followers = serializers.StringRelatedField(many=True)
     followings = serializers.StringRelatedField(many=True)
-
     post_user = PostListSerializer(many=True)
     post_likes = PostListSerializer(many=True)
 
     class Meta:
         model = User
         fields = ("id","followings", "followers", "post_user", "post_likes")
-
-
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -38,15 +33,10 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-
-
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-
         # Add custom claims
         token['username'] = user.username
-
         return token
-

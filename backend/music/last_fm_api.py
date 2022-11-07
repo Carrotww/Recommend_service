@@ -23,18 +23,23 @@ def lastfm_get(payload):
 def get_youtube_url(url):
     headers = {'User-Agent': 'Mozilla/5.0'}
     default_url = 'https://www.youtube.com'
+    default_img = ''
     response = requests.get(url, headers=headers)
     
     if response.status_code == 200:
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         try:
-            result = soup.find('a', {'class': "image-overlay-playlink-link js-playlink"})['data-youtube-url']
+            result_url = soup.find('a', {'class': "image-overlay-playlink-link js-playlink"})['data-youtube-url']
         except:
-            result = default_url
-        return result
+            result_url = default_url
+        try:
+            result_image_url = soup.find('img', {'class': "video-preview"})['src']
+        except:
+            result_image_url = default_img
+        return result_url, result_image_url
     else:
-        return default_url
+        return default_url, default_img
 
 def jprint(obj):
     # create a formatted string of the Python JSON object
@@ -110,23 +115,33 @@ def lookup_track_search(tag:list):
             'method': 'track.search',
             'track': temp})
             music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']]
-            recommend_music_list.append(random.choice(music_list))
-        recommend_result_music = [(x[0], x[1], x[2]) for x in recommend_music_list]
-
-        result_music = []
-        for x in recommend_result_music:
-            youtube_url = get_youtube_url(x[2])
-            result_music.append((x[0], x[1], x[2], youtube_url))
+            if not music_list:
+                continue
+            youtube_url, music_image = get_youtube_url(x[2])
+            try:
+                youtube_url = youtube_url.replace('watch?v=','embed/')
+            except:
+                pass
+            result_music.append((x[0], x[1], x[2], youtube_url, music_image))
 
         return result_music
 
     elif len(tag) == 1:
+        result_music = []
         response = lastfm_get({
         'method': 'track.search',
         'track': tag})
-        search_result_list = [(x['artist'], x['name'], x['url'], get_youtube_url(x['url']).replace('watch?v=','embed/')) for x in response.json()['results']['trackmatches']['track'][0:5]] # 검색결과 중 1.곡명, 2.아티스트, 3.해당곡 상세페이지 url 추출
+        music_list = [(x['artist'], x['name'], x['url']) for x in response.json()['results']['trackmatches']['track']][0:5]
+        for x in music_list:
+            youtube_url, music_image = get_youtube_url(x[2])
+            try:
+                youtube_url = youtube_url.replace('watch?v=','embed/')
+            except:
+                pass
+            result_music.append((x[0], x[1], x[2], youtube_url, music_image))
+        
 
-        return search_result_list
+        return result_music
 
 def lookup_track_info(track_info:list):
     artist, track_name = track_info[0], track_info[1]

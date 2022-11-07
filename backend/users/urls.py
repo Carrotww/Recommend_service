@@ -5,7 +5,6 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-
 urlpatterns = [
     path('signup/', views.UserView.as_view(), name='user_view'),
     path('mock/', views.mockView.as_view(), name='mock_view'),
@@ -14,4 +13,3 @@ urlpatterns = [
     path('follow/<int:user_id>/', views.FollowView.as_view(), name='follow_view'),
     path('<str:username>/', views.ProfileView.as_view(), name='Profile_view'),
 ]
-
