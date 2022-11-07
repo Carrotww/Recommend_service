@@ -109,26 +109,28 @@ form.box input[type=submit]{
 
 /* 장르 버튼이 들어있는 컨테이너 */
 .btn_container {
+  /* border: 3px solid orange; */
 margin: 80px auto;
 padding: 30px 30px;
 width: 95%;
 max-height:500px;
-height:fit-content;
+height:500px;
 background-color: white;
 float:center;
 border-radius:20px;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-align-items: center;
+/* align-items: center; */
   
 
 }
 
 
 .checkbox_container{
+  /* border: 3px solid red; */
   width: 100%;
-  height: 100%;
+  height: 80%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -137,22 +139,27 @@ align-items: center;
 }
 
 .submit_container{
-  margin: 0 0 10px;
-  width: 100%;
+  border: 5px solid pink;
+  margin: 0 30px 10px;
+  height: 80%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;  
+  text-align: center;
 }
 
 
 /* 장르 버튼 */
-button {
-  margin: 10px 10px;
+/* button {
+  display: flex;
+
+  margin: 10px 1px auto;
   padding: 10px auto;
-  max-width: 200px;
-  width:10%;
-  height:15%;
+  max-width: 300px;
+  width:20%;
+  height:28%;
   color:white ;
   background-color: #080707;
   font-size: 1.7vw;
@@ -160,12 +167,33 @@ button {
   border-radius:20px;
   transition: 0.3s;
   left:auto;  
+  align-items: center;  
+
+} */
+
+/* 확인 버튼 */
+button {
+  display: flex;
+  /* border: 5px solid purple; */
+  margin: 10px 1px auto;
+  padding: 10px auto;
+  max-width: 300px;
+  color:white ;
+  background-color: #080707;
+  font-size: 1.vw;
+  border-radius:20px;
+  transition: 0.3s;
+  left:auto;  
+  align-items: center;  
+  text-align:center
 }
 
 
-/* input[type="checkbox"]{
-  display: none;
-} */
+
+
+input[type="checkbox"]{
+
+}
 
 input:checked + label{
   background-color:rgba(126, 126, 126, 0.9);
@@ -176,14 +204,14 @@ input:checked + label{
 
 .mylabel{
   display: block;
-  /* border: 1px solid blue; */
+  border: 1px solid blue;
   margin: 10px 10px;
-  padding: 10px 25px;
-  max-width: 210px;
-  width:25%;
+  /* padding: 10px 25px; */
+  max-width: 200px;
+  width:30%;
   /* max-height: 50px; */
   /* height:fit-content; */
-  height: 100px;
+  height: 25%;
   color:white ;
   background-color: #000000;
   font-size: 1.7vw;
@@ -192,11 +220,15 @@ input:checked + label{
   transition: 0.3s;
   text-align: center;
   /* position: absolute; */
-  /* left:auto; */
+  left:auto;
 }
 
 
+
 .submit_container:hover{
+
+  
+  
   background:rgba(61, 67, 179, 0.9);
   cursor:pointer;
   box-shadow: 0 2px 4px;
@@ -205,6 +237,12 @@ input:checked + label{
 
 
 .mylabel:hover{
+  background:rgba(126, 126, 126, 0.9);
+  cursor:pointer;
+  box-shadow: 0 2px 4px;
+}
+
+.item_like:hover{
   background:rgba(126, 126, 126, 0.9);
   cursor:pointer;
   box-shadow: 0 2px 4px;
@@ -261,6 +299,70 @@ input:checked + label{
   border-radius: 3px;
   box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
   }
+
+
+
+  /* 구글 아이콘 사용 */
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(path/to/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+        local('MaterialIcons-Regular'),
+        url(path/to/MaterialIcons-Regular.woff2) format('woff2'),
+        url(path/to/MaterialIcons-Regular.woff) format('woff'),
+        url(path/to/MaterialIcons-Regular.ttf) format('truetype');
+    }
+
+    .material-icons-heart {
+      border: 2px solid red;
+      margin: 5px 5px;
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;  /* Preferred icon size */
+      display: inline-block;
+      line-height: 0;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      color:rgb(255, 211, 211);
+     
+      /* Support for all WebKit browsers. */
+      -webkit-font-smoothing: antialiased;
+     
+      /* Support for Safari and Chrome. */
+      text-rendering: optimizeLegibility;
+     
+      /* Support for Firefox. */
+      -moz-osx-font-smoothing: grayscale;
+     
+      /* Support for IE. */
+      font-feature-settings: 'liga';
+      }
+
+      .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+
+
+
+     
+  .material-symbols-outlined {
+  /* margin: 5px 5px;
+  font-variation-settings:
+  'FILL'0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48 */
+}
+.material-symbols-outlined:hover{
+  font-variation-settings:
+  'FILL'1;
+  color: red;
+}
+
 
 
 
