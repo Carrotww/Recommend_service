@@ -22,16 +22,53 @@
         <div>
             <label for="sidebar " class="menu "></label>
         </div>
-
     </nav>
 
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Noto Sans KR ", sans-serif;
+   
+
+  <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+    .checkbox_container {
+      border: 3px solid rgb(131, 131, 131);
+      border-radius:20px;
+      height: 100%;
+      width: 100%;
+    }
+
+
+    /* 스크롤바 숨기기 */
+    .checkbox_container::-webkit-scrollbar {
+     
+      display: none;
+    }
+
+    .submit_btn_container{
+      /* border: 4px solid red; */
+      justify-content: center;
+  
+      text-align: center;
+      margin: 10px auto;
+      display: flex;
+      height: 10%; 
+      width:100% ; 
+    }
+    
+  </style>
+  <script src="main.js">
+
+    window.onload = function () {
+      function searchToggle(obj, evt) {
+        var container = $(obj).closest('.search-wrapper');
+        if (!container.hasClass('active')) {
+          container.addClass('active');
+          evt.preventDefault();
+
         }
         
         .checkbox_container {
@@ -103,14 +140,22 @@
 </div> -->
 
 <body>
+
     <!-- 검색창  -->
     <div class="test_container ">
         <form class="box ">
             <h1>What do you want to listen? </h1>
             <input type="text" id="search_keyword " placeholder=" Type.. " onclick=" this.value='' ; ">
             <input type=" button" onclick='search_button()' class="search " value="Search ">
-
         </form>
+        </div>
+        
+
+        
+      </div>
+      <!-- 페이지넘기는용  -->
+      
+
     </div>
     <!-- 태그 -->
     <div class=" btn_container " style=" border-radius: 20px; ">
