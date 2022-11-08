@@ -23,7 +23,7 @@ async function ProfileMain() {
     var user_id = payload['user_id']
 
 
-    const response = await fetch('http://121.140.94.38:8000/users/' + user_id + '/', {
+    const response = await fetch('http://127.0.0.1:8000/users/' + user_id + '/', {
         headers: {
             'content-type': 'application/json',
         },

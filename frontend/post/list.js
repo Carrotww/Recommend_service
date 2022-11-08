@@ -11,7 +11,7 @@ async function postArticles(title, content) {
     }
     console.log(articleData)
 
-    const response = await fetch('http://121.140.94.38:8000/articles/', {
+    const response = await fetch('http://127.0.0.1:8000/articles/', {
         method: 'POST',
         headers: {
             'content-type': 'application/json', //데이터 타입은 JSON//
@@ -20,7 +20,7 @@ async function postArticles(title, content) {
         body: JSON.stringify(articleData)
 
     })
-    window.location.replace('http://121.140.94.38:5500/frontend/post/list.html') //글 등록이 되고 리스트 화면으로 링크//
+    window.location.replace('http://127.0.0.1:8000/frontend/post/list.html') //글 등록이 되고 리스트 화면으로 링크//
 }
 
 
@@ -28,7 +28,7 @@ async function handleButton() {
     const title = document.getElementById("title").value
     const content = document.getElementById("content").value
     console.log(title, content)
-    const response = await fetch('http://121.140.94.38:8000/articles/', {
+    const response = await fetch('http://127.0.0.1:8000/articles/', {
         headers: {
             'content-type': 'application/json',
         },
@@ -42,11 +42,11 @@ async function handleButton() {
 }
 
 async function post_ditail_view(id) {
-    window.location.href = `http: //121.140.94.38:5500/post/` + id + `/`
+    window.location.href = `http: /127.0.0.1:8000/post/` + id + `/`
 }
 
 async function show_tag_fuc() {
-    const post_data = await fetch('http://121.140.94.38:8000/articles/', {
+    const post_data = await fetch('http://127.0.0.1:8000/articles/', {
             headers: {
                 'content-type': 'application/json',
             },

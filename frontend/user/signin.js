@@ -23,7 +23,7 @@ async function handleSignIn() {
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
         // const response = await fetch('http://127.0.0.1:8000/users/api/token/', {
-    const response = await fetch('http://121.140.94.38:8000/users/api/token/', {
+    const response = await fetch('http://127.0.0.1:8000/users/api/token/', {
         headers: {
             'content-type': 'application/json',
         },
@@ -55,7 +55,7 @@ handleSignIn()
 
 async function handleMock() {
     // const response = await fetch('http://127.0.0.1:8000/users/mock/', {
-    const response = await fetch('http://121.140.94.38:8000/users/mock/', {
+    const response = await fetch('http://127.0.0.1:8000/users/mock/', {
         headers: {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },

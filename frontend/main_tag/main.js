@@ -1,5 +1,4 @@
 window.onload = () => {
-    console.log("load연결완료")
 
     show_tag_fuc() // backend에서 tag 가져오기
     alltag = new Array(); // 전체 테그 담을 리스트 선언
@@ -9,7 +8,7 @@ window.onload = () => {
 
 // tag 불러오는 함수
 async function show_tag_fuc() {
-    const response = await fetch('http://121.140.94.38:8000/music/', {
+    const response = await fetch('http://127.0.0.1:8000/music/', {
             headers: {
                 'content-type': 'application/json',
             },
@@ -30,7 +29,6 @@ async function show_tag_fuc() {
                 tag.setAttribute("onclick", "TagsPick(this.innerText)"); // 선택한 버튼 클릭 시 해당 함수 호출
                 tag.innerText = data[i]['category']; // 버튼이름 값 지정
                 // tags.appendChild(tag) // all_tags 안에 tag 추가
-                console.log(tags)
                 tags.appendChild(tag)
             }
         });
@@ -53,16 +51,13 @@ async function AllTagsPick(val) {
             alltag.push(val);
         }
     }
-    console.log(alltag)
 }
 
 async function search_button() {
     // const search_input = ""
-    // console.log(search_value)
-    const search_keyword = document.getElementById("search_keyword").value
-    console.log(search_keyword)
+    const search_keyword = document.getElementById("search_keyword ").value
 
-    const music_data = await fetch('http://121.140.94.38:8000/music_search/', {
+    const music_data = await fetch('http://127.0.0.1:8000/music_search/', {
 
         headers: {
             'content-type': 'application/json',
@@ -73,8 +68,6 @@ async function search_button() {
             "category": search_keyword
         })
     }).then((response) => { return response.json() })
-
-    console.log(music_data)
 
     localStorage.setItem('tempdata', JSON.stringify(music_data))
 
@@ -97,8 +90,8 @@ async function AllTagPost() {
             str += alltag[i] + ","
         }
     }
-    console.log(str)
-    const music_data = await fetch('http://121.140.94.38:8000/music_search/', {
+
+    const music_data = await fetch('http://127.0.0.1:8000/music_search/', {
 
         headers: {
             'content-type': 'application/json',

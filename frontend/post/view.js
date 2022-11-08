@@ -19,7 +19,7 @@ async function get_post(pk) {
     const content = document.getElementById("content")
     const title = document.getElementById("title")
 
-    const response = await fetch('http://121.140.94.38:8000/articles/' + pk + '/', {
+    const response = await fetch('http://127.0.0.1:8000/articles/' + pk + '/', {
             headers: {
                 'content-type': 'application/json',
             },

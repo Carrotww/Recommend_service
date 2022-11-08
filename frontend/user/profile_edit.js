@@ -7,7 +7,7 @@ async function ProfileEdit() {
     const image = document.getElementById("image").value
     const post_likes = document.getElementById("post_likes").value
 
-    const response = await fetch('http: //121.140.94.38:8000/users/' + user_id + '/profileedit', {
+    const response = await fetch('http: //127.0.0.1:8000/users/' + user_id + '/profileedit', {
         headers: {
             'content-type': 'application/json',
         },
