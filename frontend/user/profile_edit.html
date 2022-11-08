@@ -258,25 +258,7 @@
         </div>
     </div>
     </div>
-    <script>
-        async function ProfileEdit() {
-            const username = document.getElementById("username").value
-            const image = document.getElementById("image").value
-            const post_likes = document.getElementById("post_likes").value
-
-            const response = await fetch('http://127.0.0.1:8000/users/${username}/profileedit/', {
-                headers: {
-                    'content-type': 'application/json',
-                },
-                method: 'PUT',
-                body: JSON.stringify({
-                    "username": username,
-                    "image": image,
-                    "post_likes": post_likes,
-                })
-            })
-        }
-    </script>
+    <script src="profile_edit.js"></script>
 </body>
 
 </html>

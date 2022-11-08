@@ -23,13 +23,15 @@ async function show_tag_fuc() {
         .then(data => {
 
             console.log(data) // tag 목록 확인
-            var tags = document.getElementById("all_tags");
+            var tags = document.getElementById("all_tags ");
             for (i = 0; i < data.length; i++) {
                 const tag = document.createElement("button"); // 버튼 요소 생성
-                tag.setAttribute("class", "mylabel") // css class 지정
-                tag.setAttribute("onclick", "TagsPick(this.innerText)") // 선택한 버튼 클릭 시 해당 함수 호출
-                tag.innerText = data[i]['category'] // 버튼이름 값 지정
-                all_tags.appendChild(tag) // all_tags 안에 tag 추가
+                tag.setAttribute("class", "mylabel"); // css class 지정
+                tag.setAttribute("onclick", "TagsPick(this.innerText)"); // 선택한 버튼 클릭 시 해당 함수 호출
+                tag.innerText = data[i]['category']; // 버튼이름 값 지정
+                // tags.appendChild(tag) // all_tags 안에 tag 추가
+                console.log(tags)
+                tags.appendChild(tag)
             }
         });
 }
@@ -54,6 +56,30 @@ async function AllTagsPick(val) {
     console.log(alltag)
 }
 
+async function search_button() {
+    // const search_input = ""
+    // console.log(search_value)
+    const search_keyword = document.getElementById("search_keyword").value
+    console.log(search_keyword)
+
+    const music_data = await fetch('http://121.140.94.38:8000/music_search/', {
+
+        headers: {
+            'content-type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({
+
+            "category": search_keyword
+        })
+    }).then((response) => { return response.json() })
+
+    console.log(music_data)
+
+    localStorage.setItem('tempdata', JSON.stringify(music_data))
+
+    move_page('recommend.html')
+}
 
 // tag 버튼 값 가져오기
 async function TagsPick(val) {
@@ -97,4 +123,3 @@ async function AllTagPost() {
 function move_page(page) {
     window.location.href = page
 }
-lo

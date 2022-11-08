@@ -16,9 +16,11 @@
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
-        <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
+        <a class="list" style=" color: white; " href="/frontend/post/list.html ">게시물</a>
+        <a class="list" style=" color: white; " href="/frontend/user/profile.html ">프로필</a>
+        <a class="login" style=" color: white; " href="/frontend/user/signin.html ">로그인하기</a>
         <div>
-            <label for="sidebar" class="menu"></label>
+            <label for="sidebar " class="menu "></label>
         </div>
 
     </nav>
@@ -29,7 +31,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Noto Sans KR", sans-serif;
+            font-family: "Noto Sans KR ", sans-serif;
         }
         
         .checkbox_container {
@@ -53,8 +55,26 @@
             height: 10%;
             width: 100%;
         }
+        
+        #nav .list:hover {
+            color: red;
+        }
+        
+        .login:hover {
+            color: red;
+        }
+        
+        .search {
+            width: 20%;
+            /* height: 60%; */
+            background-color: rgb(117, 182, 255);
+            padding: 10px;
+            border-radius: 0 25px 25px 0;
+            color: #fff;
+            margin-left: -6px;
+        }
     </style>
-    <script src="main.js">
+    <script src="main.js ">
         window.onload = function() {
             function searchToggle(obj, evt) {
                 var container = $(obj).closest('.search-wrapper');
@@ -78,8 +98,8 @@
 </header>
 
 <!-- 본문영역 -->
-<!-- <div class="sidebar_container">
-  <img src="">
+<!-- <div class="sidebar_container ">
+  <img src=" ">
 </div> -->
 
 
@@ -88,19 +108,19 @@
 
 
     <!-- 검색창  -->
-    <div class="test_container">
-        <form class="box">
+    <div class="test_container ">
+        <form class="box ">
             <h1>What do you want to listen? </h1>
-            <input type="text" value="Type.." onclick="this.value='';">
-            <input type="submit" href="search.html" value="Search">
+            <input type="text" id="search_keyword " placeholder=" Type.. " onclick=" this.value='' ; ">
+            <input type=" button" onclick='search_button()' class="search " value="Search ">
+
         </form>
     </div>
 
-
     <!-- 태그 -->
-    <div class="btn_container" style="  border-radius: 20px; ">
-        <div style="overflow:auto; width:100% ; height:90%;">
-            <div class="checkbox_container" id="all_tags">
+    <div class=" btn_container " style=" border-radius: 20px; ">
+        <div style="overflow:auto; width:100% ; height:90%; ">
+            <div class="checkbox_container " id="all_tags " style="height: 400px; width: 100%; ">
 
                 <!-- <div id='result'></div> -->
 
@@ -109,13 +129,13 @@
 
         </div>
 
-        <div class="submit_btn_container">
+        <div class="submit_btn_container ">
 
 
 
             <!-- 자바스크립트에서 진짜로 쓰는 버튼 -->
-            <div class="ok">
-                <button class="submit_container" onclick='AllTagPost()'>확인</button>
+            <div class="ok ">
+                <button class="submit_container " onclick='AllTagPost()'>확인</button>
             </div>
 
         </div>
@@ -125,19 +145,19 @@
 
     </div>
     <!-- 사이드바 -->
-    <!-- <div class="sidebar_content">
+    <!-- <div class="sidebar_content ">
           <ul>
             <li><a>로그인</a></li>
             <li><a>마이페이지</a></li>
             <li><a>마이뮤직</a></li>
             <li><a>친구목록</a></li>
           </ul>
-          <label for="sidebar"></label>
+          <label for="sidebar "></label>
         </div> -->
     <!-- 사이드바 외 영역 -->
-    <!-- <label for="sidebar" class="background"></label> -->
+    <!-- <label for="sidebar " class="background "></label> -->
 </body>
 
-<script src="script.js"></script>
+</html>>/p
 
-</html
+</html>>/p

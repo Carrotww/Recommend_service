@@ -6,20 +6,15 @@ window.onload = () => {
 
 }
 async function editButton() {
-    fetch('http://121.140.94.38:8000/articles/', {
-        method: "PUT",
+    const current_pk = localStorage.getItem('pk');
+    const currnet_token = localStorage.getItem('access')
+    fetch('http://121.140.94.38:8000/articles/' + current_pk + '/', {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
-
+            'content-type': 'application/json', //데이터 타입은 JSON//
+            'Authorization': "Bearer " + localStorage.getItem("access") //로그인시 로컬 저장소에 저장되는 토큰 가져오기//
         },
-        body: JSON.stringify({
-            "title": title,
-            "content": content
-        }),
+        body: JSON.stringify(articleData)
 
     })
-    console.log(title, content)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-
-}
+})

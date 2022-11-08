@@ -93,4 +93,3 @@ async function go_detail_post(pk) {
     location.href = 'view.html';
     localStorage.setItem('pk', pk)
 }
-lo

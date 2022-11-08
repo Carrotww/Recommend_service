@@ -38,11 +38,10 @@
         .recommend_container {
             /* border: 4px solid red; */
             border: dashed 6px;
-            margin: 220px auto;
+            margin: 300px auto;
             padding: 30px 30px;
             width: 95%;
-            max-height: 1000px;
-            height: 80%;
+            height: 20%;
             background-color: rgba(255, 255, 255, 0.468);
             float: center;
             border-radius: 20px;
@@ -50,7 +49,7 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            font-size: 15%;
+            font-size: 1vw;
             z-index: 1;
         }
         
@@ -58,6 +57,7 @@
             /* border: 1px solid red; */
             width: 100%;
             border-radius: 5px;
+            /* overflow: hidden; */
         }
         
         .recommend_container flex-item_like {
@@ -111,9 +111,9 @@
             float: 50px 10px;
             display: flex;
             margin: 5px;
-            width: 40%;
-            max-width: 300px;
-            height: 30vh;
+            width: 100%;
+            max-width: 400px;
+            height: 45vh;
             max-height: 100px;
             /* border: 1px solid rgb(0, 255, 174); */
             border-radius: 10px;
@@ -384,10 +384,12 @@
 <body>
 
 
-    <!-- 검색창  -->
+
     <div class="recommend_to_user">
         <form class="box" style="z-index:-1;">
-            <h1><span id="username"></span>님이 좋아하실만한 곡은...</h1>
+            <h1><span id="username"></span>님이 좋아하실만한 곡은
+                <a style="font-size:3vw;">. . .</a>
+            </h1>
 
 
     </div>
@@ -397,7 +399,7 @@
 
     <!-- 흰색 배경창 -->
     <!-- 컨테이너에 스크롤바 -->
-    <div class="recommend_container" id="recommend_container" style=" overflow:auto;width: 90%; max-height: 500px; height: 90%; ">
+    <div class="recommend_container" id="recommend_container" style=" overflow:auto;width: 90%;height: 90%; height: 110%; ">
 
         <!-- <div class="flex-container center ">
             <div class="flex-item " id="btn-modal " style="margin: 5px 5px; ">

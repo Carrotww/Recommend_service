@@ -97,6 +97,16 @@
       color: #fff;
       margin-left: -6px;
   }
+  
+  . {
+      width: 20%;
+      /* height: 60%; */
+      background-color: rgb(117, 182, 255);
+      padding: 10px;
+      border-radius: 0 25px 25px 0;
+      color: #fff;
+      margin-left: -6px;
+  }
   /* 반응형으로 할때는 float, position-absolute 쓰지 말기ㅣㅣㅣㅣ */
   /* 장르 버튼이 들어있는 컨테이너 */
   
