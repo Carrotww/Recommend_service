@@ -1,10 +1,9 @@
   /* 사이드바
   input#sidbar {display: none;} */
   
-
   body {
-  max-height: 500px;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ),url(https://velog.velcdn.com/images/taeeuno_o/post/ae4a5988-d54f-4213-be43-fa9bb100895e/image.webp);
+      max-height: 420px;
+      background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://velog.velcdn.com/images/taeeuno_o/post/ae4a5988-d54f-4213-be43-fa9bb100895e/image.webp);
 }
 
 body, html {
@@ -254,76 +253,294 @@ input:checked + label{
 
 .checkbox-container {
   position: relative;
+
   }
   
+  body,
+  html {
+      height: 100%;
+  }
   
+  * {
+      box-sizing: border-box;
+  }
+  /* 헤더 */
   
+  header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      color: white;
+      background: #292929;
+      font-size: 1vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+  }
+  
+  h1,
+  p {
+      margin: 0;
+  }
+  /* 배경 컨테이너 */
+  
+  .main_container {
+      margin: 10px;
+      width: 70%;
+      height: 50%;
+      background-color: aqua;
+      float: center;
+  }
+  /* 배경 어둡게 해주기 */
+  
+  .test_container {
+      /* border: solid 3px red; */
+      margin: 75px auto;
+      width: 100%;
+      height: 40%;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  
+  .test_container:before {
+      position: absolute;
+      left: 0%;
+      width: 100%;
+      height: 50%;
+      background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  form.box {
+      width: 40%;
+      height: 7%;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      z-index: 1000;
+  }
+  
+  form.box h1 {
+      font-size: 2vw;
+      margin: 0 0 20px;
+  }
+  
+  form.box input[type=text] {
+      background-color: #fff;
+      width: 50%;
+      padding: 10px;
+      border-radius: 25px 0 0 25px;
+      border: none;
+  }
+  
+  form.box input[type=submit] {
+      width: 20%;
+      /* height: 60%; */
+      background-color: rgb(117, 182, 255);
+      padding: 10px;
+      border-radius: 0 25px 25px 0;
+      color: #fff;
+      margin-left: -6px;
+  }
+  
+  . {
+      width: 20%;
+      /* height: 60%; */
+      background-color: rgb(117, 182, 255);
+      padding: 10px;
+      border-radius: 0 25px 25px 0;
+      color: #fff;
+      margin-left: -6px;
+  }
+  /* 반응형으로 할때는 float, position-absolute 쓰지 말기ㅣㅣㅣㅣ */
+  /* 장르 버튼이 들어있는 컨테이너 */
+  
+  .btn_container {
+      /* border: 3px solid orange; */
+      margin: 60px auto;
+      padding: 30px 30px;
+      width: 95%;
+      max-height: 500px;
+      height: 400px;
+      background-color: white;
+      float: center;
+      border-radius: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      /* align-items: center; */
+  }
+  
+  .checkbox_container {
+      /* border: 3px solid red; */
+      width: 100%;
+      height: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .submit_container {
+      /* border: 5px solid pink; */
+      margin: 0 30px 10px;
+      height: 80%;
+      width: 90%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+  /* 장르 버튼 */
+  /* button {
+    display: flex;
+  
+    margin: 10px 1px auto;
+    padding: 10px auto;
+    max-width: 300px;
+    width:20%;
+    height:28%;
+    color:white ;
+    background-color: #080707;
+    font-size: 1.7vw;
+    border:none;
+    border-radius:20px;
+    transition: 0.3s;
+    left:auto;  
+    align-items: center;  
+  
+  } */
+  /* 확인 버튼 */
+  
+  button {
+      display: flex;
+      /* border: 5px solid purple; */
+      margin: 10px 1px auto;
+      padding: 10px auto;
+      max-width: 300px;
+      color: white;
+      background-color: #080707;
+      font-size: 1.vw;
+      border-radius: 20px;
+      transition: 0.3s;
+      left: auto;
+      align-items: center;
+      text-align: center
+  }
+  
+  input[type="checkbox"] {}
+  
+  input:checked+label {
+      background-color: rgba(126, 126, 126, 0.9);
+      box-shadow: 0 2px 4px;
+  }
+  
+  .mylabel {
+      display: block;
+      border: 1px solid blue;
+      margin: 10px 10px;
+      /* padding: 10px 25px; */
+      max-width: 200px;
+      width: 30%;
+      /* max-height: 50px; */
+      /* height:fit-content; */
+      height: 25%;
+      color: white;
+      background-color: #000000;
+      font-size: 1.7vw;
+      border: none;
+      border-radius: 90vh;
+      transition: 0.3s;
+      text-align: center;
+      /* position: absolute; */
+      left: auto;
+  }
+  
+  .submit_container:hover {
+      background: rgba(61, 67, 179, 0.9);
+      cursor: pointer;
+      box-shadow: 0 2px 4px;
+  }
+  
+  .mylabel:hover {
+      background: rgba(126, 126, 126, 0.9);
+      cursor: pointer;
+      box-shadow: 0 2px 4px;
+  }
+  
+  .item_like:hover {
+      background: rgba(126, 126, 126, 0.9);
+      cursor: pointer;
+      box-shadow: 0 2px 4px;
+  }
+  
+  .checkbox-container {
+      position: relative;
+  }
   /* // 기본 체크박스 없애기 */
+  
   .checkbox-container input[type="checkbox"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0; 
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0
   }
-  
-  
-  
   /* // 웹의 경우 커서에 pointer 설정 */
-  .checkbox-container input[type="checkbox"] + label {
-  display: inline-block; 
-  position: relative;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  
+  .checkbox-container input[type="checkbox"]+label {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
   }
+  /* 새로운 디자인의 체크박스 만들기 */
   
-  
-  
- /* 새로운 디자인의 체크박스 만들기 */
-  
-  .checkbox-container input[type="checkbox"] + label:before {
-  content: ' ';
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  line-height: 18px;
-  margin: -2px 8px 0 0;
-  text-align: center;
-  vertical-align: middle;
-  background: #fafafa;
-  border: 1px solid #cacece;
-  border-radius: 3px;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  .checkbox-container input[type="checkbox"]+label:before {
+      content: ' ';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      margin: -2px 8px 0 0;
+      text-align: center;
+      vertical-align: middle;
+      background: #fafafa;
+      border: 1px solid #cacece;
+      border-radius: 3px;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   }
-
-
-
   /* 구글 아이콘 사용 */
+  
   @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(path/to/MaterialIcons-Regular.eot); /* For IE6-8 */
-    src: local('Material Icons'),
-        local('MaterialIcons-Regular'),
-        url(path/to/MaterialIcons-Regular.woff2) format('woff2'),
-        url(path/to/MaterialIcons-Regular.woff) format('woff'),
-        url(path/to/MaterialIcons-Regular.ttf) format('truetype');
-    }
-
-    .material-icons-heart {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url(path/to/MaterialIcons-Regular.eot);
+      /* For IE6-8 */
+      src: local('Material Icons'), local('MaterialIcons-Regular'), url(path/to/MaterialIcons-Regular.woff2) format('woff2'), url(path/to/MaterialIcons-Regular.woff) format('woff'), url(path/to/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  
+  .material-icons-heart {
       border: 2px solid red;
       margin: 5px 5px;
       font-family: 'Material Icons';
       font-weight: normal;
       font-style: normal;
-      font-size: 24px;  /* Preferred icon size */
+      font-size: 24px;
+      /* Preferred icon size */
       display: inline-block;
       line-height: 0;
       text-transform: none;
@@ -331,40 +548,31 @@ input:checked + label{
       word-wrap: normal;
       white-space: nowrap;
       direction: ltr;
-      color:rgb(255, 211, 211);
-     
+      color: rgb(255, 211, 211);
       /* Support for all WebKit browsers. */
       -webkit-font-smoothing: antialiased;
-     
       /* Support for Safari and Chrome. */
       text-rendering: optimizeLegibility;
-     
       /* Support for Firefox. */
       -moz-osx-font-smoothing: grayscale;
-     
       /* Support for IE. */
       font-feature-settings: 'liga';
-      }
-
-      .material-icons.md-light { color: rgba(255, 255, 255, 1); }
-
-
-
-     
+  }
+  
+  .material-icons.md-light {
+      color: rgba(255, 255, 255, 1);
+  }
+  
   .material-symbols-outlined {
-  /* margin: 5px 5px;
-  font-variation-settings:
-  'FILL'0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48 */
-}
-.material-symbols-outlined:hover{
-  font-variation-settings:
-  'FILL'1;
-  color: red;
-}
-
-
-
-
+      /* margin: 5px 5px;
+    font-variation-settings:
+    'FILL'0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48 */
+  }
+  
+  .material-symbols-outlined:hover {
+      font-variation-settings: 'FILL'1;
+      color: red;
+  }

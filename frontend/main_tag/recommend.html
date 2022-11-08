@@ -4,8 +4,7 @@
     <!-- <link rel="stylesheet"
      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         * {
             margin: 0;
@@ -29,14 +28,13 @@
             /* position: relative; */
             z-index: 10;
         }
-
+        
         .recomment_to_user {
             margin: 10px 50px 50xp;
             z-index: 9;
-
         }
-
         /* 노래 목록이 들어있는 컨테이너 */
+        
         .recommend_container {
             /* border: 4px solid red; */
 
@@ -44,8 +42,7 @@
             margin: 220px auto;
             padding: 30px 30px;
             width: 95%;
-            max-height: 1000px;
-            height: 80%;
+            height: 20%;
             background-color: rgba(255, 255, 255, 0.468);
             float: center;
             border-radius: 20px;
@@ -53,35 +50,23 @@
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
-            font-size: 15%;
+            font-size: 1vw;
             z-index: 1;
         }
-
+        
         .recommend_container img {
             /* border: 1px solid red; */
-
             width: 100%;
             border-radius: 5px;
+            /* overflow: hidden; */
         }
-
-
-
+        
         .recommend_container flex-item_like {
             border: 1px solid red;
-
-
             width: 90%;
             border-radius: 5px;
         }
-
-
-
-
-
-
-
-
-
+        
         .recommend_music {
             /* border: 1px red; */
             margin: 10px;
@@ -97,21 +82,15 @@
             justify-content: center;
             align-items: center;
         }
-
+        
         .recommend_music img {
             /* border: 1px red; */
-
-
             margin: 10px;
             padding: 10px 30px;
             height: 40%;
             /* background-color: rgb(255, 0, 0); */
-
         }
-
-
-
-
+        
         button {
             margin: 10px 10px;
             padding: 10px auto;
@@ -126,153 +105,132 @@
             transition: 0.3s;
             left: auto;
         }
-
-
         /* 음악 창  */
-
+        
         .flex-container {
             margin: 10px 10px;
             float: 50px 10px;
-
             display: flex;
             margin: 5px;
-            width: 40%;
-            max-width: 300px;
-            height: 30vh;
+            width: 100%;
+            max-width: 400px;
+            height: 45vh;
             max-height: 100px;
             /* border: 1px solid rgb(0, 255, 174); */
             border-radius: 10px;
             background-color: #ffffff;
             color: rgb(0, 0, 0);
         }
-
-
         /* 음악 창 속 배열 */
-
         /* .flex-container.flex-start{align-items: flex-start;}
         .flex-container.flex-end{align-items: flex-end;} */
+        
         .flex-container.center {
             margin: 10px;
             align-items: center;
         }
-
         /* .flex-container.stretch{align-items: stretch;}
         .flex-container.baseline{align-items: baseline;} */
-
         /* 앨범 표지 */
+        
         .flex-item {
             /* border: 3px solid rgb(95, 56, 56); */
-
             width: 30%;
             margin: 10px 10px;
             text-align: center;
         }
-
+        
         .color-red {
             background-color: darksalmon;
         }
-
+        
         .color-blue {
             background-color: dodgerblue;
         }
-
+        
         .color-green {
             background-color: forestgreen;
         }
-
+        
         .color-yellow {
             background-color: gold;
         }
-
+        
         .color-pupple {
             background-color: rebeccapurple;
         }
-
+        
         .color-orange {
             background-color: orange;
         }
-
+        
         .font1 {
             font-size: 10px;
         }
-
+        
         .font2 {
             font-size: 10px;
         }
-
+        
         .font3 {
             font-size: 10px;
         }
-
+        
         .font4 {
             font-size: 10px;
         }
-
+        
         .font5 {
             font-size: 10px;
         }
-
-
         /* 스크롤바 숨기기 */
+        
         .recommend_container::-webkit-scrollbar {
             display: none;
         }
-
-
+        
         .flex-item-like {
             color: gold;
         }
-
-
+        
         .heart-font {
             font-size: 80%;
-
         }
-
-
         /* 좋아요 */
-
+        
         .material-symbols-outlined {
             margin: 5px 5px;
-
-
         }
-
+        
         .material-symbols-outlined:hover {
-            font-variation-settings:
-                'FILL' 1;
+            font-variation-settings: 'FILL' 1;
             color: red;
         }
-
+        
         input:checked+label {
             background-color: white;
             box-shadow: none;
         }
-
-
+        
         .material-symbols-outlined:hover {
             /* font-variation-settings: */
             /* 'FILL' 1; */
             color: red;
         }
-
+        
         input[type="checkbox"] {
             display: none;
         }
-
+        
         input:checked+label {
-            font-variation-settings:
-                'FILL' 1;
+            font-variation-settings: 'FILL' 1;
             color: rgb(255, 0, 0);
         }
-
-
-
+        
         .mylike {
             border: 3px solid pink;
             display: block;
             /* border: 1px solid blue; */
-
             /* max-height: 50px; */
             height: fit-content;
             color: rgb(0, 0, 0);
@@ -284,11 +242,8 @@
             /* position: absolute; */
             /* left:auto; */
         }
-
-
-
         /* 모달창 만들기 */
-
+        
         #modal.modal-overlay {
             z-index: 1000;
             width: 100%;
@@ -307,9 +262,8 @@
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
-
+        
         #modal .modal-window {
-
             background: rgba(255, 255, 255, 0.7);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             backdrop-filter: blur(13.5px);
@@ -322,7 +276,7 @@
             top: -600px;
             padding: 10px;
         }
-
+        
         #modal .title {
             padding-left: 10px;
             display: inline;
@@ -330,14 +284,12 @@
             color: rgb(251, 249, 249);
 
         }
-
+        
         #modal .title h2 {
             display: inline;
         }
-
-
-
         /* 닫기 */
+        
         #modal .close-area {
             font-size: 30px;
             display: inline;
@@ -347,321 +299,163 @@
             text-shadow: 1px 1px 2px gray;
             color: white;
         }
-
+        
         #modal .close-area:hover {
             /* border: 3px solid blue; */
             color: rgb(52, 151, 250);
         }
-
+        
         #modal .content {
-            margin-top: 20px;
+            margin-top: 1px;
             padding: 0px 10px;
             text-shadow: 1px 1px 2px gray;
             color: white;
         }
-
+        
         #modal.modal-overlay {
-
             display: none;
-
-        }
-
-
-        .all_music {
-            background-color: #865555;
-            /* display : inline-block; */
-        }
-
-        #music0{
-            background-color: #ffffff;
-            border: 20px;
-            margin:10px;
-            padding: 15px 20px;
-            border-radius: 6px;
-            width: 65%;
-            /* width: 500px; */
-        }
-        #music1{
-            background-color: #ffffff;
-            border: 20px;
-            margin:10px;
-            padding: 15px 20px;
-            border-radius: 6px;
-            width: 65%;
-            /* width: 500px; */
-        }
-        #music2{
-            background-color: #ffffff;
-            border: 20px;
-            margin:10px;
-            padding: 15px 20px;
-            border-radius: 6px;
-            width: 65%;
-            /* width: 500px; */
-        }
-
-        .music_title {
-            /* background-color: #ffffff; */
-            font-size: 26px;
-            font-weight: 600;
-        }
-
-        .music_singer {
-            /* background-color: #ffffff; */
-            font-size: 20px;
-            color: #acacac;
-        }
-
-        .music_url {
-            background-color: #7b83ca;
         }
         
-        .music_info {
-            background-color: #777777;
-            font-size: 10px;
-        }
-
-
         .music_detail {
-            color: rgb(203, 94, 94);
+            color: rgb(124, 28, 84);
             font-size: 20px;
         }
-
+        
         .music_detail_title {
-            padding-top: 30px;
+            padding-top: 10px;
             padding-bottom: 20px;
         }
-
-
+        
         .music_detail_singer {
             padding-bottom: 20px;
         }
-
+        
         .music_detail_composer {
             padding-bottom: 20px;
         }
-
+        
         .music_detail_lyricist {
             padding-bottom: 20px;
         }
-
-
         /* 모달창 테이블 꾸미기 */
+        
         table {
             /* border: 2px solid pink; */
-
-            width: 90%;
+            width: 80%;
             border-top: 1px solid #444444;
             border-collapse: collapse;
         }
-
+        
         th,
         td {
-
-            border-bottom: 1px solid #000000;
-            padding: 10px;
+            border-bottom: 1.5px solid #000000;
+            padding: 7px;
+        }
+        /* 유튜브 호버 */
+        
+        .youtube_link:hover {
+            font-variation-settings: 'FILL' 1;
+            color: red;
+            font-style: inherit;
         }
     </style>
 </head>
-
-
 <!DOCTYPE html>
-
 <html lang="ko">
 <header>
-
-
     <h1> 추천 해드릴 곡은 </h1>
     <div>
         <nav>
             <a style="color: white;" href="main.html">
-                <img style="width: 30px;"
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/95eb8dbf-7bed-4503-b7ab-961a7713716f/image.png">
+
+                <img style="width: 30px;" src="https://velog.velcdn.com/images/taeeuno_o/post/95eb8dbf-7bed-4503-b7ab-961a7713716f/image.png">
             </a>
-
-
             <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
-
         </nav>
     </div>
 
-
     <script src="recommend.js">
-        const heartSvg = document.querySelector('.feed-icon.like-default');
-        const heartPath = document.querySelector('.feed-icon.like-default path');
-
-        heartSvg.addEventListener('click', () => changeClass(heartSvg, heartPath));
-        function fillHeartRed(heartSvg, heartPath){
-            if(heartSvg.classList.contains("like-default")){
-                heartSvg.classList.remove("like-default");
-                heartSvg.classList.add("like-fill");
-                heartPath.setAttribute('d','M34.6 3....')
-            }
-            else{
-                heartSvg.classList.remove("like-fill");
-                heartSvg.classList.add("like-default");
-                heartPath.setAttribute('d','M34.6 6....')
-            }
-        }
-
-       
-
-
-  
-
-
 
 </header>
 
 <body>
-
-
-    <!-- 검색창  -->
     <div class="recommend_to_user">
-
-        <form class="box">
-            <h1><span id="username"></span>님이 좋아하실만한 곡은...</h1>
-
-
-
-
+        <form class="box" style="z-index:-1;">
+            <h1><span id="username"></span>님이 좋아하실만한 곡은
+                <a style="font-size:3vw;">. . .</a>
+            </h1>
     </div>
-
-
-
-
     <!-- 흰색 배경창 -->
     <!-- 컨테이너에 스크롤바 -->
 
-    <div class="recommend_container" style="overflow:auto;width: 90%; max-height: 500px; height: 90%;">
-           <div class="all_music" id="all_music">
-            <div class="music" id="music0"></div>
-            <div class="music" id="music1"></div>
-            <div class="music" id="music2"></div>
-        </div>
-
-        <div class="flex-container center">
-            <div class="flex-item" id="btn-modal" style="margin: 5px 5px; ">
-                <img
-                    src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg">
-            </div>
-            <div class="flex-item">1111가나다라마바사아자카차타파하</div>
-            <div class="flex-item" style="width: 20%; ">가수 명</div>
-            <div class="flex-item_like">
-                <input type='checkbox' name='like2' value='like2' id="like2" style="width: 20%;" />
-                <label for="like2" class="mylike">
-                    <span class="material-symbols-outlined" id="like2">
-                        favorite
-                    </span>
-                </label>
-            </div>
-        </div>
-
-        
-
+    <div class="recommend_container" id="recommend_container" style=" overflow:auto;width: 90%;height: 90%; height: 110%; ">
 
 
 
         <!-- 상세정보창 (모달) -->
 
-        <div id="modal" class="modal-overlay">
-            <div class="modal-window">
-                <div class="title" style="font-size:20px;">
+        <div id="modal " class="modal-overlay ">
+            <div class="modal-window ">
+                <div class="title " style="font-size:20px; ">
                     <h2>상세정보</h2>
                 </div>
                 <!-- 닫기버튼 -->
-                <div class="close-area">x</div>
+                <div class="close-area ">x</div>
                 <!-- 앨범 표지 -->
-                <div class="content">
-                    <div class="flex-item" style="width: 100%;">
-                        <img class="modal_image" style="width:50%;  float:center; margin: 10px  auto;"
-                            src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg">
+
+                <div class="content ">
+                    <div class="flex-item " style="width: 100%; ">
+                        <img class="modal_image " style="width:50%; float:center; margin: 10px auto; " src="https://velog.velcdn.com/images/taeeuno_o/post/3efce04a-c7c8-4fb2-8c73-bd26e1cf9a5c/image.jpg ">
+
                     </div>
-                    <div class="music_detail">
+                    <div class="music_detail ">
                         <br>
                         <!-- 앨범 정보 차트 -->
-                        <table class="music_detail" style="margin:auto; height: 30%;">
+                        <table class="music_detail " style=" margin:auto; height: 25%; ">
 
                             <!-- 곡 제목  -->
-                            <tr class="music_detail_title">
+
+                            <tr class="music_detail_title ">
+
                                 <th> 곡 제목</th>
                                 <td>두번째 칸</td>
                             </tr>
                             <!-- 곡 제목  끝 -->
 
                             <!-- 가수 -->
-                            <tr class="music_detail_singer">
+                            <tr class="music_detail_singer ">
                                 <th>가수</th>
                                 <td>두번째 칸</td>
                             </tr>
                             <!-- 가수 끝 -->
 
                             <!-- 작곡가 -->
-                            <tr class="music_detail_composer">
+                            <tr class="music_detail_composer ">
                                 <th>작곡가</th>
                                 <td>두번째 칸</td>
                             </tr>
                             <!-- 작곡가 끝 -->
 
                             <!-- 작사가 -->
-                            <tr class="music_detail_lyricist">
+                            <tr class="music_detail_lyricist ">
                                 <th>작사가</th>
                                 <td>두번째 칸</td>
                             </tr>
                             <!-- 작사가 끝 -->
+                            <tr clsdd="music_detail_youtube ">
+                                <th colspan='2'>
+                                    <p class="youtube_link " style="font-size:10px; text-align: center; "> <img style="margin:1px; width: 30px; " src="https://velog.velcdn.com/images/taeeuno_o/post/ddad6a03-082b-404c-9ecd-ffe2b1920282/image.png ">유튜브 링크</p>
+
+                                </th>
+
+                            </tr>
+
                         </table>
                     </div>
                 </div>
             </div>
 
 </body>
-
-<script src="recommend.js"></script>
-
-<script>
-    // 모달창
-    const loremIpsum = document.getElementById("lorem-ipsum")
-    fetch("https://baconipsum.com/api/?type=all-meat&paras=200&format=html")
-        .then(response => response.text())
-        .then(result => loremIpsum.innerHTML = result)
-    const modal = document.getElementById("modal")
-    console.log(modal)
-    function modalOn() {
-        modal.style.display = "flex"
-    }
-    function isModalOn() {
-        return modal.style.display === "flex"
-    }
-
-    // 모달창 바깥 부분 지정
-    function modalOff() {
-        modal.style.display = "none"
-    }
-    // 목록에서 앨범 표지 누르면 모달창 생성
-    const btnModal = document.getElementById("btn-modal")
-    btnModal.addEventListener("click", e => {
-        modalOn()
-    })
-    // x 버튼 누르면 모달창 닫침
-    const closeBtn = modal.querySelector(".close-area")
-    closeBtn.addEventListener("click", e => {
-        modalOff()
-    })
-    // 모달창 바깥 부분 누르면 모달창 닫침
-    modal.addEventListener("click", e => {
-        const evTarget = e.target
-        if (evTarget.classList.contains("modal-overlay")) {
-            modalOff()
-        }
-    })
-    // ESC누르면 모달창 닫침
-    window.addEventListener("keyup", e => {
-        if (isModalOn() && e.key === "Escape") {
-            modalOff()
-        }
-    })
-</script>
-<script src="script.js"></script>
-
+<script src="recommend.js "></script>
 
 </html>

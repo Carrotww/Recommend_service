@@ -8,7 +8,6 @@ urlpatterns = [
     path("articles/", include("posts.urls")),
     path("users/", include("users.urls")),
     path("", include("music.urls")),
-    path("post/", include("posts.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
