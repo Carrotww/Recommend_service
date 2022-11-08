@@ -4,17 +4,18 @@ from rest_framework.response import Response
 from posts.serializers import PostCreateSerializer, CommentSerializer, CommentCreateSerializer, PostListSerializer
 from posts.models import Post
 from rest_framework.generics import get_object_or_404
+from django.contrib.auth.decorators import login_required
 class ArticlesView(APIView):
-
     def get(self, request):
         post = Post.objects.all()
         serializer = PostListSerializer(post, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+    # @login_required
+    def post(self, request):
+        serializer = PostListSerializer(data=request.data)
 
-    def post(self, request, format=None):
-        serializer = PostCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data)
@@ -28,11 +29,11 @@ class ArticleDetailView(APIView):
         serializer = PostListSerializer(post)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+    @login_required
     def put(self, request, post_id):
         post = get_object_or_404(Post, id=post_id)
         if request.user == post.user:
-            serializer = PostListSerializer(post)
+            serializer = PostListSerializer(post, data=request.data)
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)

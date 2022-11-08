@@ -1,103 +1,178 @@
 <head>
-  <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/53a8c415f1.js" crossorigin="anonymous"></script>
 </head>
 <!DOCTYPE html>
 <html lang="ko">
 
-  
+
 <!-- 사이드바 만들기 -->
 <!-- <input type="checkbox" id="sidebar"> -->
 
 <header>
-  <!-- 헤더 네비게이션 -->
+    <!-- 헤더 네비게이션 -->
 
 
     <h1> 곡 추천 사이트에 오신것을 환영합니다 </h1>
     <nav>
-      <a style="color: white;" href="/frontend/user/signin.html">로그인하기</a>
-      <div>
-        <label for="sidebar" class="menu"></label>
-      </div>
-          
+        <a class="list" style=" color: white; " href="/frontend/post/list.html ">게시물</a>
+        <a class="list" style=" color: white; " href="/frontend/user/profile.html ">프로필</a>
+        <a class="login" style=" color: white; " href="/frontend/user/signin.html ">로그인하기</a>
+        <div>
+            <label for="sidebar " class="menu "></label>
+        </div>
     </nav>
+
+
+   
+
+  <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans KR", sans-serif;
+  }
+    .checkbox_container {
+      border: 3px solid rgb(131, 131, 131);
+      border-radius:20px;
+      height: 100%;
+      width: 100%;
+    }
+
+
+    /* 스크롤바 숨기기 */
+    .checkbox_container::-webkit-scrollbar {
+     
+      display: none;
+    }
+
+    .submit_btn_container{
+      /* border: 4px solid red; */
+      justify-content: center;
+  
+      text-align: center;
+      margin: 10px auto;
+      display: flex;
+      height: 10%; 
+      width:100% ; 
+    }
     
+  </style>
+  <script src="main.js">
 
-
-    <script src="main.js">
-
-      window.onload = function(){
-        function searchToggle(obj, evt){
+    window.onload = function () {
+      function searchToggle(obj, evt) {
         var container = $(obj).closest('.search-wrapper');
-          if(!container.hasClass('active')){
-            container.addClass('active');
-            evt.preventDefault();
-          }
-          else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0)
-          {
-            container.removeClass('active');
-             // clear input
-             container.find('.search-input').val('');
-          }
-      }
+        if (!container.hasClass('active')) {
+          container.addClass('active');
+          evt.preventDefault();
 
-        let c1 = document.querySelectorAll('label');
-        c1.addEventListener('click',function(){
-          c1.classList.toggle('flipped')
-          console.log('ㅠㅠ')
-        })
-      }
+        }
         
+        .checkbox_container {
+            border: 3px solid rgb(131, 131, 131);
+            border-radius: 20px;
+            height: 100%;
+            width: 100%;
+        }
+        /* 스크롤바 숨기기 */
+        
+        .checkbox_container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .submit_btn_container {
+            /* border: 4px solid red; */
+            justify-content: center;
+            text-align: center;
+            margin: 10px auto;
+            display: flex;
+            height: 10%;
+            width: 100%;
+        }
+        
+        #nav .list:hover {
+            color: red;
+        }
+        
+        .login:hover {
+            color: red;
+        }
+        
+        .search {
+            width: 20%;
+            /* height: 60%; */
+            background-color: rgb(117, 182, 255);
+            padding: 10px;
+            border-radius: 0 25px 25px 0;
+            color: #fff;
+            margin-left: -6px;
+        }
+    </style>
+    <script src="main.js ">
+        window.onload = function() {
+            function searchToggle(obj, evt) {
+                var container = $(obj).closest('.search-wrapper');
+                if (!container.hasClass('active')) {
+                    container.addClass('active');
+                    evt.preventDefault();
+                } else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+                    container.removeClass('active');
+                    // clear input
+                    container.find('.search-input').val('');
+                }
+            }
+
+            let c1 = document.querySelectorAll('label');
+            c1.addEventListener('click', function() {
+                c1.classList.toggle('flipped')
+                console.log('ㅠㅠ')
+            })
+        }
     </script>
 </header>
 
 <!-- 본문영역 -->
-<!-- <div class="sidebar_container">
-  <img src="">
+<!-- <div class="sidebar_container ">
+  <img src=" ">
 </div> -->
-
 
 <body>
 
-
-    
-        <!-- 검색창  -->
-         <div class = "test_container">
-          <form class="box">
+    <!-- 검색창  -->
+    <div class="test_container ">
+        <form class="box ">
             <h1>What do you want to listen? </h1>
-            <input type="text" value="Type.."   onclick="this.value='';" >
-            <input type="submit" href="search.html"  value="Search">
-          </form>
-         </div>
-
-
-         <!-- 태그 -->
-        <div class="btn_container">
-          
-          <div class="checkbox_container" id="all_tags"></div>
-
-          <div class="">
-            <button class="submit_container" onclick='AllTagPost()'>확인</button>
-          </div>
-          <div id='result'></div>
-        
+            <input type="text" id="search_keyword " placeholder=" Type.. " onclick=" this.value='' ; ">
+            <input type=" button" onclick='search_button()' class="search " value="Search ">
+        </form>
+        </div>
         
 
-        </div> 
-        <!-- 사이드바 -->
-        <!-- <div class="sidebar_content">
-          <ul>
-            <li><a>로그인</a></li>
-            <li><a>마이페이지</a></li>
-            <li><a>마이뮤직</a></li>
-            <li><a>친구목록</a></li>
-          </ul>
-          <label for="sidebar"></label>
-        </div> -->
-        <!-- 사이드바 외 영역 -->
-        <!-- <label for="sidebar" class="background"></label> -->
+        
+      </div>
+      <!-- 페이지넘기는용  -->
+      
+
+    </div>
+    <!-- 태그 -->
+    <div class=" btn_container " style=" border-radius: 20px; ">
+        <div style="overflow:auto; width:100% ; height:90%; ">
+            <div class="checkbox_container " id="all_tags " style="height: 400px; width: 100%; ">
+                <!-- <div id='result'></div> -->
+            </div>
+            <!-- 페이지넘기는용  -->
+        </div>
+        <div class="submit_btn_container ">
+            <!-- 자바스크립트에서 진짜로 쓰는 버튼 -->
+            <div class="ok ">
+                <button class="submit_container " onclick='AllTagPost()'>확인</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 
-           <script src="script.js"></script>
-
-</html
-
+</html>

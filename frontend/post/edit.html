@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <link rel="stylesheet" href="css/css.css">
+    <script src="article_create.js"></script>
+    <script src="edit.js"></script>
+</head>
+
+<body>
+    <div class="board_wrap">
+        <div class="board_title">
+            <strong>자유 게시판</strong>
+            <p></p>
+        </div>
+        <div class="board_write_wrap">
+            <div class="board_write">
+                <div class="title">
+                    <dl>
+                        <dt>제목</dt>
+                        <dd><input type="text" placeholder="제목 입력" value="제목"></dd>
+                    </dl>
+                </div>
+                <div class="info">
+                    <dl>
+                        <dt>이미지 업로드</dt>
+                        <dd><input type="image" placeholder="image"></dd>
+                    </dl>
+                </div>
+                <div class="cont">
+                    <textarea placeholder="내용 입력">
+
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="bt_wrap">
+                <a href="view.html" class="on" onclick="editArticle()">수정</a>
+                <a href="view.html">취소</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>n
